@@ -1,0 +1,7 @@
+### Description of models in folder.
+
+These are simple models looking at a simple multivariate normal distribution made of 3 parameters, mu, sigma, and lambda. The idea here is to test whether bayesian model selection (inclusion of an indicator variable), can be interpretted in a frequentist manner. Or to quantify how type I and type II error shift with increasing sample size, and increasing effect size.
+
+As of March 24th the code to run this is at the end of 'Type I Error.R', lines 155 onwards
+
+	

@@ -1,0 +1,5 @@
+
+# 2. BevHoltPoisson1ts_Inits.txt:  Contains the parameter values used to initialize the chain for 
+#                               the initial ML estimation.
+
+list(lamm11=1.2,b1=0.13,sig1=0.174)

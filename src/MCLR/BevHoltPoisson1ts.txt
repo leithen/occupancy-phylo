@@ -1,0 +1,32 @@
+#### ----  IN WHAT FOLLOWS THE CONTENTS OF THE VARIOUS "BUGS" PROGRAM FILES CALLED ABOVE ARE SHOWN
+#### ----     please save each of these 5 code sections as separate 'txt' files
+
+# 1. BevHoltPoisson1ts.txt:  Contains the "model" code in WinBugs needed to estimate the initial 
+#                         ML estimates of all the parameters in the model:
+#### BevHoltPoisson, a single time series
+model{
+for(k in 1:K){
+	# Updating the state:
+	X1[k,1]~dnorm(meano1,varE1);
+	
+	for(i in 2:19){
+		X1[k,i]~dnorm(meanX1[k,i],varE1);
+		meanX1[k,i] <- X1[k,(i-1)]+ log(lamm11+1)-log(1+b1*exp(X1[k,(i-1)]));	
+	}
+
+	# Updating the observations
+	for(i in 1:18){
+		Y1[k,i]~dpois(mu1[k,i]);
+		log(mu1[k,i]) <- X1[k,(i+1)];
+
+	}
+}
+# Priors on model parameters
+lamm11~dlnorm(0,1);
+b1~dlnorm(-1,1); 
+sig1~dunif(0,1);
+lam1 <- lamm11 + 1;
+meano1 <- log(2)  + log(lamm11+1)-log(1+b1*2);
+varE1        <- 1/pow(sig1,2);
+
+}

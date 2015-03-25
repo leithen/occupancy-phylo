@@ -1,0 +1,304 @@
+mod$weight
+mod$weight2
+mod$weights
+str(mod)
+mod<-lme(HumMinOverall ~Habitat -1,  random=~1|Site, data= df, weights=varIdent(~Habitat))
+summary(mod)
+t.test(HumMinOverall ~Habitat)
+t.test(HumMinOverall ~Habitat, data=df)
+t.test(HumMinOverall ~Habitat -1, data=df)
+se(pdf$HumMinOverall)
+se(fdf$HumMinOverall)
+mean(fdf$HumMinOverall)
+mod<-lme(HumMinOverall ~Habitat -1,  random=~1|Site, data= df, weights=varIdent(~Habitat))
+summary(mod)
+mean(fdf$HumMinOverall)
+mean(pdf$HumMinOverall)
+se(pdf$HumMinOverall)
+mean(fdf$HumMinOverall)
+se(fdf$HumMinOverall)
+sd(pdf$HumMinOverall)
+sd(fdf$HumMinOverall)
+mean(fdf$HumMin)
+se(fdf$HumMin)
+mean(pdf$HumMin)
+se(pdf$HumMin)
+mean(pdf$MaxMax)
+mean(pdf$Max)
+mean(pdf$MaxMax)
+mean(fdf$MaxMax)
+pdf$MaxMax
+mod<-lmer(HumMinOverall ~Habitat*Elevation + (1|Site), data= df)
+autoSelect(mod)
+mod<-lmer(HumMin ~Habitat*Elevation + (1|Site), data= df)
+autoSelect(mod)
+mod<-lmer(MaxMax ~Habitat -1 + (1|Site), data= df)
+summary(mod)
+mod<-lmer(MaxMax ~Habitat + (1|Site), data= df)
+mod
+summary(mod)
+load('~/Dropbox/ccb_banding/analyses/multi-species-chase/saved/simulated/lambda/nsp_16_p_05/0.000.RData', verbose=T)
+res
+str(res)
+res$model.out
+res$model.out$lambda
+str(res$model.out)
+summary(res$model.out)
+dctable(res$model.out)
+library(dclone)
+dctable(res$model.out)
+dct<-dctable(res$model.out)
+plot(dct)
+load('~/Dropbox/ccb_banding/analyses/multi-species-chase/saved/simulated/lambda/nsp_16_p_05/0.250.RData', verbose=T)
+summary(res$model.out)
+load('~/Dropbox/ccb_banding/analyses/multi-species-chase/saved/simulated/lambda/nsp_16_p_05/0.500.RData', verbose=T)
+summary(res$model.out)
+load('~/Dropbox/ccb_banding/analyses/multi-species-chase/saved/simulated/lambda/nsp_16_p_05/0.750.RData', verbose=T)
+summary(res$model.out)
+dct<-dctable(res$model.out)
+plot(dct)
+load('~/Dropbox/ccb_banding/analyses/multi-species-chase/saved/simulated/lambda/nsp_16_p_05/1.000.RData', verbose=T)
+summary(res$model.out)
+load('~/Dropbox/ccb_banding/analyses/multi-species-chase/saved/simulated/lambda/v1/nsp_16_p_05/1.000.RData')
+summary(res$model.out)
+load('~/Dropbox/ccb_banding/analyses/multi-species-chase/saved/simulated/lambda/v1/nsp_16_p_05/1.000.RData', verbose=T)
+summary(res$model.out)
+load('~/Dropbox/ccb_banding/analyses/multi-species-chase/saved/simulated/lambda/nsp_16_p_05/1.000.RData', verbose=T)
+summary(res$model.out)
+dct<-dctable(res$model.out)
+dct
+plot(dct$lambda)
+dct$lambda
+plot(dct[[1]])
+plot(dct[[c(1,2)]])
+dctable(res$model.out)
+dct$lambda
+fish<-dct$lambda
+class(fish)<-"dctable"
+plot(fish)
+str(res)
+str(res$dd.model$inputs)
+res$dd.model$inputs
+res$dd.model
+load('~/Dropbox/ccb_banding/analyses/multi-species-chase/saved/simulated/lambda/nsp_16_p_05/1.000.RData', verbose=T)
+res$dd.model
+str(res$dd.model)
+str(res)
+ls()
+rm(list=ls())
+load('~/Dropbox/ccb_banding/analyses/multi-species-chase/saved/simulated/lambda/nsp_32_p_05/0.000.RData', verbose=T)
+library(dclone)
+summary(res$model.out)
+load('~/Dropbox/ccb_banding/analyses/multi-species-chase/saved/simulated/lambda/nsp_16_p_05/0.000.RData')
+summary(res$model.out)
+res$model.out
+str(res$model.out)
+dctable(res$model.out)
+load('~/Dropbox/ccb_banding/analyses/multi-species-chase/saved/simulated/lambda/v1/nsp_32_p_05/0.000.RData')
+summary(res$model.out)
+load('~/Dropbox/ccb_banding/analyses/multi-species-chase/saved/simulated/lambda/nsp_16_p_05/0.250.RData')
+summary(res$model.out)
+str(res$model.out)
+dctable(res$model.out)
+summary(res$model.out)
+load('~/Dropbox/ccb_banding/analyses/multi-species-chase/saved/simulated/lambda/nsp_16_p_05/0.500.RData', verbose=T)
+summary(res$model.out)
+load('~/Dropbox/ccb_banding/analyses/multi-species-chase/saved/simulated/lambda/nsp_32_p_05/0.000.RData', verbose=T)
+summary(res$model.out)
+res$dd.model$tree
+res$dd.model$inputs$tree
+library(dclone)
+load('~/Dropbox/ccb_banding/analyses/multi-species-chase/saved/simulated/lambda/nsp_32_p_05/0.000.RData', verbose=T)
+summary(res$model.out)
+detach(dclone)
+detach(package::dclone)
+detach("dclone")
+detach("package:dclone")
+load('~/Dropbox/ccb_banding/analyses/multi-species-chase/saved/simulated/lambda/nsp_32_p_05/0.000.RData', verbose=T)
+summary(res$model.out)
+detach("package:dclone", unload=T)
+library(dclone)
+detach("package:dclone", unload=T)
+load('~/Dropbox/ccb_banding/analyses/multi-species-chase/saved/simulated/lambda/nsp_32_p_05/0.000.RData', verbose=T)
+summary(res$model.out)
+load('~/Dropbox/ccb_banding/analyses/multi-species-chase/saved/simulated/lambda/nsp_32_p_05/0.000.RData', verbose=T)
+res$dd.model$inputs$tree
+summary(res$model.out)
+library(geiger)
+res$dd.model$inputs$tree
+summary(res$model.out)
+library(phytools)
+summary(res$model.out)
+res$dd.model$inputs
+res$dd.model$inputs$beta.spp
+res$dd.model$inputs$beta.summary
+res$dd.model$inputs$beta.summary$beta.spp
+phylosig(#
+res$dd.model$inputs$tree ,#
+res$dd.model$inputs$beta.summary$beta.spp ,#
+method="lambda", test=T)
+summary(res$model.out)
+summary(res$model.out)$lambda
+confint(res$model.out)
+coef(res$model.out)
+conf(res$model.out)
+load('~/Dropbox/ccb_banding/analyses/multi-species-chase/saved/simulated/lambda/nsp_32_p_05/0.250.RData', verbose=T)
+phylosig(#
+res$dd.model$inputs$tree ,#
+res$dd.model$inputs$beta.summary$beta.spp ,#
+method="lambda", test=T)
+summary(res$model.out)
+phylosig(#
+res$dd.model$inputs$tree ,#
+res$dd.model$inputs$beta.summary$beta.spp ,#
+method="lambda", test=T)
+res$dd.model$inputs$tree
+res$dd.model$inputs$tree$tiplabel
+res$dd.model$inputs$tree$tiplabels
+res$dd.model$inputs$tree$tip.labels
+res$dd.model$inputs$tree$tip.label
+load('~/Dropbox/ccb_banding/analyses/multi-species-chase/saved/simulated/lambda/nsp_32_p_05/0.500.RData', verbose=T)
+phylosig(#
+res$dd.model$inputs$tree ,#
+res$dd.model$inputs$beta.summary$beta.spp ,#
+method="lambda", test=T)
+summary(res$model.out)
+load('~/Dropbox/ccb_banding/analyses/multi-species-chase/saved/simulated/lambda/nsp_32_p_05/0.750.RData', verbose=T)
+phylosig(#
+res$dd.model$inputs$tree ,#
+res$dd.model$inputs$beta.summary$beta.spp ,#
+method="lambda", test=T)
+summary(res$model.out)
+load('~/Dropbox/ccb_banding/analyses/multi-species-chase/saved/simulated/lambda/nsp_32_p_05/1.000.RData', verbose=T)
+phylosig(#
+res$dd.model$inputs$tree ,#
+res$dd.model$inputs$beta.summary$beta.spp ,#
+method="lambda", test=T)
+summary(res$model.out)
+load('~/Dropbox/ccb_banding/analyses/multi-species-chase/saved/simulated/lambda/nsp_16_p_05/1.000.RData', verbose=T)#
+#
+phylosig(#
+res$dd.model$inputs$tree ,#
+res$dd.model$inputs$beta.summary$beta.spp ,#
+method="lambda", test=T)
+load('~/Dropbox/ccb_banding/analyses/multi-species-chase/saved/simulated/lambda/nsp_16_p_05/1.000.RData', verbose=T)
+res$dd.model$inputs$tree ,
+res$dd.model$inputs$tree
+res$dd.model$inputs$beta.summary$beta.spp
+res$dd.model$inputs
+res$dd.model$inputs$beta
+str(res$dd.model$inputs)
+phylosig(#
+res$dd.model$inputs$tree ,#
+res$dd.model$inputs$beta.spp ,#
+method="lambda", test=T)
+summary(res$model.out)
+load('~/Dropbox/ccb_banding/analyses/multi-species-chase/saved/simulated/lambda/nsp_16_p_05/0.750.RData', verbose=T)
+phylosig(#
+res$dd.model$inputs$tree ,#
+res$dd.model$inputs$beta.spp ,#
+method="lambda", test=T)
+summary(res$model.out)
+load('~/Dropbox/ccb_banding/analyses/multi-species-chase/saved/simulated/lambda/nsp_16_p_05/0.500.RData', verbose=T)
+phylosig(#
+res$dd.model$inputs$tree ,#
+res$dd.model$inputs$beta.spp ,#
+method="lambda", test=T)
+summary(res$model.out)
+load('~/Dropbox/ccb_banding/analyses/multi-species-chase/saved/simulated/lambda/nsp_16_p_05/0.250.RData', verbose=T)
+phylosig(#
+res$dd.model$inputs$tree ,#
+res$dd.model$inputs$beta.spp ,#
+method="lambda", test=T)#
+summary(res$model.out)
+load('~/Dropbox/ccb_banding/analyses/multi-species-chase/saved/simulated/lambda/nsp_16_p_05/0.000.RData', verbose=T)
+phylosig(#
+res$dd.model$inputs$tree ,#
+res$dd.model$inputs$beta.spp ,#
+method="lambda", test=T)
+summary(res$model.out)
+load('~/Dropbox/ccb_banding/analyses/multi-species-chase/saved/simulated/lambda/nsp_16_p_05/0.000.RData', verbose=T)
+phylosig(#
+res$dd.model$inputs$tree ,#
+res$dd.model$inputs$beta.spp ,#
+method="lambda", test=T)
+load('~/Dropbox/ccb_banding/analyses/multi-species-chase/saved/simulated/lambda/nsp_16_p_05/0.250.RData', verbose=T)
+phylosig(#
+res$dd.model$inputs$tree ,#
+res$dd.model$inputs$beta.spp ,#
+method="lambda", test=T)
+load('~/Dropbox/ccb_banding/analyses/multi-species-chase/saved/simulated/lambda/nsp_16_p_05/0.500.RData', verbose=T)
+phylosig(#
+res$dd.model$inputs$tree ,#
+res$dd.model$inputs$beta.spp ,#
+method="lambda", test=T)
+load('~/Dropbox/ccb_banding/analyses/multi-species-chase/saved/simulated/lambda/nsp_16_p_05/0.750.RData', verbose=T)
+phylosig(#
+res$dd.model$inputs$tree ,#
+res$dd.model$inputs$beta.spp ,#
+method="lambda", test=T)
+load('~/Dropbox/ccb_banding/analyses/multi-species-chase/saved/simulated/lambda/nsp_16_p_05/1.000.RData', verbose=T)
+phylosig(#
+res$dd.model$inputs$tree ,#
+res$dd.model$inputs$beta.spp ,#
+method="lambda", test=T)
+summary(res$model.out)
+setwd("~/Dropbox/ccb_banding/analyses/multi-species-chase/src/MCLR")
+library(BRugs)
+install.packages("BRugs")
+library("MASS")
+i<-1
+kvec <- c(20,40,80,160,240);
+kvec
+K <- kvec[i];
+K
+Paurelia1 <- c(17,29,39,63,185,258,267,392,510,570,650,560,575,650,550,480,520,500);
+Paurelia1
+qp1       <- 18;
+qp1
+tskreps1<- matrix(rep(Paurelia1,K),nrow=K,ncol=qp1,byrow=T);
+tskreps1
+dataforBugs <- list(K=K,Y1=tskreps1);
+dataforBugs
+file.path("C:\\PONCIANO\\GauseDataCloning\\LikelihoodRatio","Paurelia10k1rep.txt")
+K       <- 20;
+lam.vec <- seq(1.81,2.80,by=0.01);
+len.lam <- length(lam.vec);
+prof.mles1rep <- matrix(0,nrow=len.lam,ncol=2)
+prof.mles1rep
+MLES.BH.1rep <-  c(0.0021320000, 2.1730000, 0.11860000)
+MLES.BH
+MLES.BH.1rep
+MLES.BH.1rep[2]
+MLES.BH.1rep[1]
+MLES.BH.1rep[3]
+Paurelia1
+dataforBugs <- list(lam=MLES.BH.1rep[2],b=MLES.BH.1rep[1],sig=MLES.BH.1rep[3],Y1=Paurelia1);
+dataforBugs
+Paurelia1
+length(Paurelia1)
+log(Paurelia1)
+log(Paurelia1-1)
+dataforBugs
+lenXs
+lenXs     <- 19; #(18+ 1 latent variable)
+len.chains
+MLES.BH.1rep
+lenXs
+?dlnorm
+lam.vec
+MLES.BH.1rep[1]
+Paurelia1
+lenY      <- length(Y1);
+Y1        <- Paurelia1;
+lenY      <- length(Y1);
+lenY
+Xloglikes.hat      <- rep(0,lenY+1);
+Xloglikes.hat
+Xloglikes.hat
+lam.max
+lam.max   <- MLES.BH.1rep[2];
+b.max     <- MLES.BH.1rep[1];
+sig.max   <- MLES.BH.1rep[3];
+log(lam.max)
+b.max

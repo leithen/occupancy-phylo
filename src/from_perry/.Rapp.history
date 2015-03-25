@@ -1,0 +1,1126 @@
+hold[spp.id-140] #Lon
+hold[spp.id-10] #hasGeospatialIssues
+hold[spp.id-74] #month
+hold[spp.id-130] #Event date
+spp.id<-grep("Basileuterus rufifrons$", hold)
+hold[spp.id-141] #Lat
+out<-data.frame(#
+	lat= hold[spp.id-141], #Lat#
+	lon=hold[spp.id-140], #Lon#
+	hasIssues=hold[spp.id-10], #hasGeospatialIssues#
+	month=hold[spp.id-74], #month#
+	data=hold[spp.id-130] #Event date#
+)
+head(out)
+tail(out)
+tail(out, 50)
+out[out$hasIssues!="false",]
+out.clean<-out[!out$hasIssues!="false",]
+head(out.clean, 1000)
+out.clean$lat
+as.numeric(out.clean$lat)
+as.numeric(as.character(out.clean$lat)
+as.numeric(as.character(out.clean$lat))
+out.clean$lat<-as.numeric(as.character(out.clean$lat))
+out.clean$lon
+as.character(out.clean$lon)
+as.character(c(1, 3, "fisher"))
+as.numeric(as.character(c(1, 3, "fisher")))
+out.clean$lon<-as.numeric(as.character(out.clean$lon))
+na.omit(out.clean)
+clean.final<-na.omit(out.clean)
+dim(clean.final)
+plot(clean.final$lon, clean.final$lat)
+which(out.clean$lon>0)
+oout.clean<-out.clean[-which(out.clean$lon>0),]
+clean.final<-na.omit(out.clean)
+plot(clean.final$lon, clean.final$lat)
+out.clean<-out.clean[-which(out.clean$lon>0),]
+clean.final<-na.omit(out.clean)
+plot(clean.final$lon, clean.final$lat)
+hold[spp.id[]
+hold[spp.id]
+spp.id<-grep("Basileuterus rufifrons$", hold)#
+out<-data.frame(#
+	species=hold[spp.id]#
+	lat= hold[spp.id-141], #Lat#
+	lon=hold[spp.id-140], #Lon#
+	hasIssues=hold[spp.id-10], #hasGeospatialIssues#
+	month=hold[spp.id-74], #month#
+	data=hold[spp.id-130] #Event date#
+)#
+#
+out.clean<-out[!out$hasIssues!="false",]#
+#
+head(out.clean, 1000)#
+out.clean$lat<-as.numeric(as.character(out.clean$lat))#
+out.clean$lon<-as.numeric(as.character(out.clean$lon))#
+clean.final<-na.omit(out.clean)#
+plot(clean.final$lon, clean.final$lat)
+spp.id<-grep("Basileuterus rufifrons$", hold)#
+out<-data.frame(#
+	species=hold[spp.id],#
+	lat= hold[spp.id-141], #Lat#
+	lon=hold[spp.id-140], #Lon#
+	hasIssues=hold[spp.id-10], #hasGeospatialIssues#
+	month=hold[spp.id-74], #month#
+	data=hold[spp.id-130] #Event date#
+)#
+#
+out.clean<-out[!out$hasIssues!="false",]#
+#
+head(out.clean, 1000)#
+out.clean$lat<-as.numeric(as.character(out.clean$lat))#
+out.clean$lon<-as.numeric(as.character(out.clean$lon))#
+clean.final<-na.omit(out.clean)#
+plot(clean.final$lon, clean.final$lat)
+head(out.clean, 10)
+spp.id<-grep("Basileuterus rufifrons$", hold)#
+out<-data.frame(#
+	species=hold[spp.id],#
+	lat= hold[spp.id-141], #Lat#
+	lon=hold[spp.id-140], #Lon#
+	hasIssues=hold[spp.id-10], #hasGeospatialIssues#
+	month=hold[spp.id-74], #month#
+	data=hold[spp.id-130] #Event date#
+)#
+#
+out.clean<-out[!out$hasIssues!="false",]#
+#
+head(out.clean, 10)#
+out.clean$lat<-as.numeric(as.character(out.clean$lat))#
+out.clean$lon<-as.numeric(as.character(out.clean$lon))#
+clean.final<-na.omit(out.clean)#
+plot(clean.final$lon, clean.final$lat)
+getwd()
+write.csv(clean.final, "Basileuterus rufifrons.csv")
+file.con<-"~/Downloads/0001183-150221044754056/occurrence.txt"
+N<-224
+colz<-scan(file.con, what="raw",n=N,skip=0, blank.lines.skip=F, sep="\t")
+colz
+get<-c("species","decimalLatitude", "decimalLongitude", "class","family","genus", "month", "eventDate",  "gbifID", "coordinateAccuracy", "valid", "basisOfRecord", "georeferenceVerificationStatus", "habitat", "hasCoordinate", "hasGeospatialIssues")
+hold<-scan(file.con, what="raw",n=N*10000, skip=1, blank.lines.skip=F, sep="\t")
+hold.mat<-matrix(hold, ncol=N, byrow=T)
+df<-data.frame(hold.mat)
+names(df)<-colz
+df.final<-df[get]
+head(df.final)
+hold<-scan(file.con, what="raw",n=N*100000, skip=1, blank.lines.skip=F, sep="\t")
+spp.id<-grep("Basileuterus culicivorus$", hold)
+spp.id
+species=hold[spp.id]
+hold[spp.id]
+hold[spp.id-141]
+hold[spp.id-140]
+spp.id<-grep("Basileuterus culicivorus$", hold)#
+out<-data.frame(#
+	species=hold[spp.id],#
+	lat= hold[spp.id-141], #Lat#
+	lon=hold[spp.id-140], #Lon#
+	hasIssues=hold[spp.id-10], #hasGeospatialIssues#
+	month=hold[spp.id-74], #month#
+	data=hold[spp.id-130] #Event date#
+)
+out[out$hasIssues!="false",]
+out.clean<-out[!out$hasIssues!="false",]
+head(out.clean, 10)
+out.clean$lat<-as.numeric(as.character(out.clean$lat))
+out.clean$lon<-as.numeric(as.character(out.clean$lon))
+clean.final<-na.omit(out.clean)
+plot(clean.final$lon, clean.final$lat)
+clean.final[clean.final$lat>40,]
+out.clean$month<-as.numeric(as.character(out.clean$month))
+out.clean<-out[!out$hasIssues!="false",]#
+#
+head(out.clean, 10)#
+out.clean$lat<-as.numeric(as.character(out.clean$lat))#
+out.clean$lon<-as.numeric(as.character(out.clean$lon))#
+out.clean$month<-as.numeric(as.character(out.clean$month))
+clean.final<-na.omit(out.clean)
+dim(clean.final)
+plot(clean.final$lon, clean.final$lat)
+clean.final[clean.final$lat>40,]
+clean.final[clean.final$lat>25,]
+file.con<-"~/Downloads/0001183-150221044754056/occurrence.txt"#
+### Set n by trial an error to collect all header rows#
+N<-224#
+#
+colz<-scan(file.con, what="raw",n=N,skip=0, blank.lines.skip=F, sep="\t")#
+colz#
+get<-c("species","decimalLatitude", "decimalLongitude", "class","family","genus", "month", "eventDate",  "gbifID", "coordinateAccuracy", "valid", "basisOfRecord", "georeferenceVerificationStatus", "habitat", "hasCoordinate", "hasGeospatialIssues")#
+#
+# hold<-data.frame(matrix(get, nrow=1))#
+# names(hold)<-get#
+#
+hold<-scan(file.con, what="raw",n=N*100000, skip=1, blank.lines.skip=F, sep="\t")#
+#
+hold.mat<-matrix(hold, ncol=N, byrow=T)#
+#
+df<-data.frame(hold.mat)#
+names(df)<-colz#
+df.final<-df[get]#
+#
+head(df.final)#
+dim(df.final)#
+df.final$species#
+#
+spp.id<-grep("Basileuterus culicivorus$", hold)#
+out<-data.frame(#
+	species=hold[spp.id],#
+	lat= hold[spp.id-141], #Lat#
+	lon=hold[spp.id-140], #Lon#
+	hasIssues=hold[spp.id-10], #hasGeospatialIssues#
+	month=hold[spp.id-74], #month#
+	date=hold[spp.id-130] #Event date#
+)#
+#
+out[out$hasIssues!="false",]#
+#
+out.clean<-out[!out$hasIssues!="false",]#
+#
+head(out.clean, 10)#
+out.clean$lat<-as.numeric(as.character(out.clean$lat))#
+out.clean$lon<-as.numeric(as.character(out.clean$lon))#
+out.clean$month<-as.numeric(as.character(out.clean$month))#
+clean.final<-na.omit(out.clean)#
+#
+dim(clean.final)#
+plot(clean.final$lon, clean.final$lat)#
+#
+clean.final[clean.final$lat>25,]#
+#
+write.csv(clean.final, "Basileuterus culicivorus.csv")
+#########################################################################
+#
+file.con<-"~/Downloads/0001185-150221044754056/occurrence.txt"#
+### Set n by trial an error to collect all header rows#
+N<-224#
+#
+colz<-scan(file.con, what="raw",n=N,skip=0, blank.lines.skip=F, sep="\t")#
+colz#
+get<-c("species","decimalLatitude", "decimalLongitude", "class","family","genus", "month", "eventDate",  "gbifID", "coordinateAccuracy", "valid", "basisOfRecord", "georeferenceVerificationStatus", "habitat", "hasCoordinate", "hasGeospatialIssues")#
+#
+# hold<-data.frame(matrix(get, nrow=1))#
+# names(hold)<-get#
+#
+hold<-scan(file.con, what="raw",n=N*10000, skip=1, blank.lines.skip=F, sep="\t")#
+#
+hold.mat<-matrix(hold, ncol=N, byrow=T)#
+#
+df<-data.frame(hold.mat)#
+names(df)<-colz#
+df.final<-df[get]#
+#
+head(df.final)#
+dim(df.final)#
+df.final$species#
+#
+spp.id<-grep("Basileuterus rufifrons$", hold)#
+out<-data.frame(#
+	species=hold[spp.id],#
+	lat= hold[spp.id-141], #Lat#
+	lon=hold[spp.id-140], #Lon#
+	hasIssues=hold[spp.id-10], #hasGeospatialIssues#
+	month=hold[spp.id-74], #month#
+	date=hold[spp.id-130] #Event date#
+)#
+#
+out.clean<-out[!out$hasIssues!="false",]#
+#
+head(out.clean, 10)#
+out.clean$lat<-as.numeric(as.character(out.clean$lat))#
+out.clean$lon<-as.numeric(as.character(out.clean$lon))#
+out.clean$month<-as.numeric(as.character(out.clean$month))#
+#
+out.clean<-out.clean[-which(out.clean$lon>0),]#
+#
+clean.final<-na.omit(out.clean)#
+plot(clean.final$lon, clean.final$lat)#
+#
+write.csv(clean.final, "Basileuterus rufifrons.csv")
+dim(clean.final)
+binom.test(6,200, p=0.05)
+binom.test(6,200, p=0.05, conf.level=0.99)
+binom.test(4,200, p=0.05, conf.level=0.99)
+14000/60
+1500/60
+load('~/Dropbox/ccb_banding/analyses/multi-species-phylo/saved/nobreed_bio12/zook-early-25-short-GLOB-summary.RData', verbose=T)
+summary
+str(summary)
+summary$bugs
+summary$bugs[,c(1,2,3,7,8,9)]
+round(summary$bugs[,c(1,2,3,7,8,9)],3)
+sumz<-round(summary$bugs[,c(1,2,3,7,8,9)],3)
+grep(row.names(sumz))
+grep("mu",row.names(sumz))
+sumz [grep("mu",row.names(sumz)),]
+sumz [grep("gam.0",row.names(sumz)),]
+sumz [grep("gam.0",row.names(sumz)),'mean']
+max(sumz [grep("gam.0",row.names(sumz)),'mean'])
+round(summary$bugs[,c(1,2,3,7,8,9)],3)
+sumz [grep("intensity",row.names(sumz)),]
+sumz [grep("trait",row.names(sumz)),]
+str(sumz)
+str(summary)
+load('~/Box Sync/R Scripts/Chapter I/Dataframes/BirdTraitsClimate25_Index_and_Raw_Occs_FairProp.Rdata', verbose=T)
+names(BTC)
+BTC[,1]
+BTC[,c(1,4,7,8,11)]
+)
+names(BTC)#
+head(#
+BTC[,c(1,4,7,8,11)]#
+)
+head(#
+BTC[,c(1,4,8,11)]#
+)
+HabAffs<-BTC[,c(1,4,8,11)]
+nm<-read.csv("~/Dropbox/ccb_banding/data/original/NameMatch_Master_WorkingVersion.csv")
+HabAffs$species_code
+match(HabAffs$species_code, nm$Jim)
+nm$Jim[match(HabAffs$species_code, nm$Jim)]
+HabAffs$species_code
+nm$ClimateSciName[match(HabAffs$species_code, nm$Jim)]
+HabAffs$ClimateSciName<-nm$ClimateSciName[match(HabAffs$species_code, nm$Jim)]
+HabAffs
+write.csv(HabAffs, file="~/Desktop/HabAffFile.csv")
+write.csv(HabAffs, file="~/Desktop/HabAffFil
+HabAffs
+library(raster)
+clim_data=getData('worldclim',var="bio",res=2.5)
+## ************************************************************#
+## run analysis#
+## ************************************************************#
+setwd('~/Dropbox/ccb_banding')#
+rm(list=ls())#
+source('analyses/multi-species-phylo/src/initialize.R')#
+## ************************************************************#
+runif(1)
+path <- 'data/for_analysis/zook/occupancy'
+case <- 'early'
+sp.trait <- 'nobreed_bio12' #Mean annual precip
+source('analyses/multi-species-phylo/src/models/single_season_region_shift_TRIAL.R')
+## migrants and non-migrants#
+fn <- sprintf('zook-%s-25-short-GLOB', case)#
+load(sprintf('%s/dd.25.%s.RData', path, case))
+res <- analyze.old(dd.model, sp.trait, fn, ni=100, nb=10, nc=3, nt=1, save=F)
+source('analyses/multi-species-phylo/src/models/single_season_region_shift_TRIAL.R')
+## migrants and non-migrants#
+fn <- sprintf('zook-%s-25-short-GLOB', case)#
+load(sprintf('%s/dd.25.%s.RData', path, case))#
+## #
+res <- analyze.old(dd.model, sp.trait, fn, ni=100, nb=10, nc=3, nt=1, save=F)
+sumz<-res$bugs$BUGSoutput$summary#
+cols <- c('mean', '2.5%', '97.5%', 'Rhat', 'n.eff')#
+round(sumz[,cols], 3)
+##************************************************************************#
+## Importance sampling code for Perry#
+###
+## Fri March 5 2015#
+##************************************************************************#
+library(dclone)#
+library(R2jags)#
+library(scales)#
+#
+setwd('~/Dropbox/ccb_banding/analyses/occupancy-phylo/Code for Perry/round_2')#
+rm(list=ls())#
+#
+source('functionsFaster.R') ## These are the functions you sent to us,#
+                            ## with a few modifications and additional#
+                            ## functions.  Completely new, or updated#
+                            ## functions begin on line 411#
+#
+## compile C code and load resultant .so object#
+fn.1 <- 'phyloOccLL.o'#
+fn.2 <- 'phyloOccLL.so'#
+fn.3 <- 'phyloOccLL.c'#
+if(file.exists(fn.1)) file.remove(fn.1)#
+if(file.exists(fn.2)) file.remove(fn.2)#
+system(sprintf('R CMD SHLIB %s', fn.3))#
+dyn.load(fn.2)#
+#
+## load the data which was simulated with lambda=0.5 and 32 species#
+## (lambda=0.5 is important, because as will be shown later, the model#
+## with lambda is the less likely model)#
+load('POM_mods_lambda_0.5_nsp_32_V8.rdata', verbose=T)#
+#
+#####################################################################
+## Calculate LL with small number of draws#
+#####################################################################
+#
+## If this is repeated a few times the resulting p-values vary quite #
+## a bit#
+#
+set.seed(1)#
+n.batch <- 1#
+#
+mod.lam <- pom.LL(mod.lam,#
+                  n.batches=n.batch,#
+                  batch.size=10000,#
+                  save.all.LLs=T)
+boolXzero
+str(X)
+apply(X, c(1,2,4), sum)
+apply(X, c(1,2,4), sum)==0
+aperm(X, c(1,2,4,3))
+absent.all.reps <- apply(X, c(1,2,4), sum)==0
+Xred<-aperm(X, c(1,2,4,3))
+apply(Xred, c(1,2,3), sum)
+apply(Xred, c(1,2,3), sum)==0
+absent.all.reps <- apply(X, c(1,2,4), sum)==0
+absent.all.reps
+Z <- X*0
+Z
+absent.all.reps
+Z[absent.all.reps] <- 1
+Z
+apply(Xred, c(1,2,3), sum)==0
+Zred<-apply(Xred, c(1,2,3), sum)==0
+rep(as.vector(Zred), 5)
+nrep
+nsp
+nyr
+nsite
+array( rep(as.vector(Zred), nrep), dim=c(nsite, nyr, nsp, nrep))
+Z<-array( rep(as.vector(Zred), nrep), dim=c(nsite, nyr, nsp, nrep))
+Z.min<-apply(Xred, c(1,2,3), sum)==0
+Xred<-aperm(X, c(1,2,4,3))
+Z.min<-apply(Xred, c(1,2,3), sum)==0
+Zred<-array( rep(as.vector(Z.min), nrep), dim=c(nsite, nyr, nsp, nrep))
+Zred
+aperm(Zred, c(1,2,4,3))
+Z<-aperm(Zred, c(1,2,4,3))
+dimnames(Z)<-dimnames(X)
+Z
+X
+X[,,,1]
+X[,1,,1]
+X[,1,,2]
+X[,1,,3]
+Z[,1,,3]
+X
+Xred<-aperm(X, c(1,2,4,3))
+Z.min<-apply(Xred, c(1,2,3), sum)==0
+Z.min
+Zred<-array( rep(as.vector(Z.min), nrep), dim=c(nsite, nyr, nsp, nrep))
+Z<-aperm(Zred, c(1,2,4,3))
+dimnames(Z)<-dimnames(X)
+X[,1,,3]
+Z[,1,,3]
+all.equal(apply(X, c(1,2,4), sum)==0, apply(Z, c(1,2,4), sum)!=0)
+X[,1,,3]
+Z.absent[,1,,3]
+Z.absent<-aperm(Zred, c(1,2,4,3))
+dimnames(Z.absent)<-dimnames(X)
+Z.absent[,1,,3]
+boolXzero <- as.vector(X==0)#
+#
+  Xred<-aperm(X, c(1,2,4,3))#
+  Z.min<-apply(Xred, c(1,2,3), sum)==0#
+  Zred<-array( rep(as.vector(Z.min), nrep), dim=c(nsite, nyr, nsp, nrep))#
+  boolZzero <-aperm(Zred, c(1,2,4,3))#
+  dimnames(boolZzero)<-dimnames(X)
+source('functionsFaster_lof.R') ## These are the functions you sent to us,
+Q
+source('functionsFaster_lof.R') ## These are the functions you sent to us,
+par.calc.LL.faster
+set.seed(1)#
+n.batch <- 1
+mod.lam <- pom.LL(mod.lam,#
+                  n.batches=n.batch,#
+                  batch.size=10000,#
+                  save.all.LLs=T)
+load('POM_mods_lambda_0.5_nsp_32_V8.rdata', verbose=T)
+set.seed(1)#
+n.batch <- 1#
+#
+mod.lam <- pom.LL(mod.lam,#
+                  n.batches=n.batch,#
+                  batch.size=10000,#
+                  save.all.LLs=T)
+## Fri March 5 2015#
+##************************************************************************#
+library(dclone)#
+library(R2jags)#
+library(scales)#
+#
+setwd('~/Dropbox/ccb_banding/analyses/occupancy-phylo/Code for Perry/round_2')#
+rm(list=ls())#
+#
+source('functionsFaster_lof.R') ## These are the functions you sent to us,#
+                            ## with a few modifications and additional#
+                            ## functions.  Completely new, or updated#
+                            ## functions begin on line 411#
+#
+## compile C code and load resultant .so object#
+fn.1 <- 'phyloOccLL.o'#
+fn.2 <- 'phyloOccLL.so'#
+fn.3 <- 'phyloOccLL.c'#
+if(file.exists(fn.1)) file.remove(fn.1)#
+if(file.exists(fn.2)) file.remove(fn.2)#
+system(sprintf('R CMD SHLIB %s', fn.3))#
+dyn.load(fn.2)#
+#
+## load the data which was simulated with lambda=0.5 and 32 species#
+## (lambda=0.5 is important, because as will be shown later, the model#
+## with lambda is the less likely model)#
+load('POM_mods_lambda_0.5_nsp_32_V8.rdata', verbose=T)#
+#
+#####################################################################
+## Calculate LL with small number of draws#
+#####################################################################
+#
+## If this is repeated a few times the resulting p-values vary quite #
+## a bit#
+#
+set.seed(1)#
+n.batch <- 1#
+#
+mod.lam <- pom.LL(mod.lam,#
+                  n.batches=n.batch,#
+                  batch.size=10000,#
+                  save.all.LLs=T)
+## Fri March 5 2015#
+##************************************************************************#
+library(dclone)#
+library(R2jags)#
+library(scales)#
+#
+setwd('~/Dropbox/ccb_banding/analyses/occupancy-phylo/Code for Perry/round_2')#
+rm(list=ls())#
+#
+source('functionsFaster_lof.R') ## These are the functions you sent to us,#
+                            ## with a few modifications and additional#
+                            ## functions.  Completely new, or updated#
+                            ## functions begin on line 411#
+#
+## compile C code and load resultant .so object#
+fn.1 <- 'phyloOccLL.o'#
+fn.2 <- 'phyloOccLL.so'#
+fn.3 <- 'phyloOccLL.c'#
+if(file.exists(fn.1)) file.remove(fn.1)#
+if(file.exists(fn.2)) file.remove(fn.2)#
+system(sprintf('R CMD SHLIB %s', fn.3))#
+dyn.load(fn.2)#
+#
+## load the data which was simulated with lambda=0.5 and 32 species#
+## (lambda=0.5 is important, because as will be shown later, the model#
+## with lambda is the less likely model)#
+load('POM_mods_lambda_0.5_nsp_32_V8.rdata', verbose=T)#
+#
+#####################################################################
+## Calculate LL with small number of draws#
+#####################################################################
+#
+## If this is repeated a few times the resulting p-values vary quite #
+## a bit#
+#
+set.seed(1)#
+n.batch <- 1#
+#
+mod.lam <- pom.LL(mod.lam,#
+                  n.batches=n.batch,#
+                  batch.size=10000,#
+                  save.all.LLs=T)
+set.seed(1)#
+n.batch <- 1#
+#
+mod.lam <- pom.LL(mod.lam,#
+                  n.batches=n.batch,#
+                  batch.size=1000,#
+                  save.all.LLs=T)
+length(attr(mod.lam,  'lik.vals'))
+round(attr(mod.lam,  'stat.sum'), 4)
+## Fri March 5 2015#
+##************************************************************************#
+library(dclone)#
+library(R2jags)#
+library(scales)#
+#
+setwd('~/Dropbox/ccb_banding/analyses/occupancy-phylo/Code for Perry/round_2')#
+rm(list=ls())#
+#
+source('functionsFaster_lof.R') ## These are the functions you sent to us,#
+                            ## with a few modifications and additional#
+                            ## functions.  Completely new, or updated#
+                            ## functions begin on line 411#
+#
+## compile C code and load resultant .so object#
+fn.1 <- 'phyloOccLL.o'#
+fn.2 <- 'phyloOccLL.so'#
+fn.3 <- 'phyloOccLL.c'#
+if(file.exists(fn.1)) file.remove(fn.1)#
+if(file.exists(fn.2)) file.remove(fn.2)#
+system(sprintf('R CMD SHLIB %s', fn.3))#
+dyn.load(fn.2)#
+#
+## load the data which was simulated with lambda=0.5 and 32 species#
+## (lambda=0.5 is important, because as will be shown later, the model#
+## with lambda is the less likely model)#
+load('POM_mods_lambda_0.5_nsp_32_V8.rdata', verbose=T)#
+#
+#####################################################################
+## Calculate LL with small number of draws#
+#####################################################################
+#
+## If this is repeated a few times the resulting p-values vary quite #
+## a bit#
+#
+set.seed(1)#
+n.batch <- 1#
+#
+mod.lam <- pom.LL(mod.lam,#
+                  n.batches=n.batch,#
+                  batch.size=1000,#
+                  save.all.LLs=T)
+round(attr(mod.lam,  'stat.sum'), 4)
+> round(attr(mod.lam,  'stat.sum'), 4)#
+        LL        AIC    Samples      SE.LL #
+-5619.0459 11316.0920  1000.0000     1.3743
+## Fri March 5 2015#
+##************************************************************************#
+library(dclone)#
+library(R2jags)#
+library(scales)#
+#
+setwd('~/Dropbox/ccb_banding/analyses/occupancy-phylo/Code for Perry/round_2')#
+rm(list=ls())#
+#
+source('functionsFaster_lof.R') ## These are the functions you sent to us,#
+                            ## with a few modifications and additional#
+                            ## functions.  Completely new, or updated#
+                            ## functions begin on line 411#
+#
+## compile C code and load resultant .so object#
+fn.1 <- 'phyloOccLL.o'#
+fn.2 <- 'phyloOccLL.so'#
+fn.3 <- 'phyloOccLL.c'#
+if(file.exists(fn.1)) file.remove(fn.1)#
+if(file.exists(fn.2)) file.remove(fn.2)#
+system(sprintf('R CMD SHLIB %s', fn.3))#
+dyn.load(fn.2)#
+#
+## load the data which was simulated with lambda=0.5 and 32 species#
+## (lambda=0.5 is important, because as will be shown later, the model#
+## with lambda is the less likely model)#
+load('POM_mods_lambda_0.5_nsp_32_V8.rdata', verbose=T)#
+#
+#####################################################################
+## Calculate LL with small number of draws#
+#####################################################################
+#
+## If this is repeated a few times the resulting p-values vary quite #
+## a bit#
+#
+set.seed(1)#
+n.batch <- 1#
+#
+mod.lam <- pom.LL(mod.lam,#
+                  n.batches=n.batch,#
+                  batch.size=1000,#
+                  save.all.LLs=T)
+absent.all.reps <- apply(X, c(1,2,4), sum)==0
+Z <- X*0
+for(i in 1:(dim(Z)[3])) {Z[,,i,][absent.all.reps] <- 1}
+boolZzero<-as.vector(Z)
+boolZzero
+absent.all.reps <- apply(X, c(1,2,4), sum)==0
+absent.all.reps
+Xred<-aperm(X, c(1,2,4,3))#
+  Z.min<-apply(Xred, c(1,2,3), sum)==0#
+  Zred<-array( rep(as.vector(Z.min), nrep), dim=c(nsite, nyr, nsp, nrep))#
+  boolZzero <-aperm(Zred, c(1,2,4,3))#
+  dimnames(boolZzero)<-dimnames(X)
+boolZzero<-as.vector(boolZzero)
+boolZzero
+absent.all.reps <- apply(X, c(1,2,4), sum)==0
+absent.all.reps
+Q
+## Fri March 5 2015#
+##************************************************************************#
+library(dclone)#
+library(R2jags)#
+library(scales)#
+#
+setwd('~/Dropbox/ccb_banding/analyses/occupancy-phylo/Code for Perry/round_2')#
+rm(list=ls())#
+#
+source('functionsFaster_lof.R') ## These are the functions you sent to us,#
+                            ## with a few modifications and additional#
+                            ## functions.  Completely new, or updated#
+                            ## functions begin on line 411#
+#
+## compile C code and load resultant .so object#
+fn.1 <- 'phyloOccLL.o'#
+fn.2 <- 'phyloOccLL.so'#
+fn.3 <- 'phyloOccLL.c'#
+if(file.exists(fn.1)) file.remove(fn.1)#
+if(file.exists(fn.2)) file.remove(fn.2)#
+system(sprintf('R CMD SHLIB %s', fn.3))#
+dyn.load(fn.2)#
+#
+## load the data which was simulated with lambda=0.5 and 32 species#
+## (lambda=0.5 is important, because as will be shown later, the model#
+## with lambda is the less likely model)#
+load('POM_mods_lambda_0.5_nsp_32_V8.rdata', verbose=T)#
+#
+#####################################################################
+## Calculate LL with small number of draws#
+#####################################################################
+#
+## If this is repeated a few times the resulting p-values vary quite #
+## a bit#
+#
+set.seed(1)#
+n.batch <- 1#
+#
+mod.lam <- pom.LL(mod.lam,#
+                  n.batches=n.batch,#
+                  batch.size=1000,#
+                  save.all.LLs=T)
+boolZzero
+Q
+## Importance sampling code for Perry#
+###
+## Fri March 5 2015#
+##************************************************************************#
+library(dclone)#
+library(R2jags)#
+library(scales)#
+#
+setwd('~/Dropbox/ccb_banding/analyses/occupancy-phylo/Code for Perry/round_2')#
+rm(list=ls())#
+#
+source('functionsFaster_lof.R') ## These are the functions you sent to us,#
+                            ## with a few modifications and additional#
+                            ## functions.  Completely new, or updated#
+                            ## functions begin on line 411#
+#
+## compile C code and load resultant .so object#
+fn.1 <- 'phyloOccLL.o'#
+fn.2 <- 'phyloOccLL.so'#
+fn.3 <- 'phyloOccLL.c'#
+if(file.exists(fn.1)) file.remove(fn.1)#
+if(file.exists(fn.2)) file.remove(fn.2)#
+system(sprintf('R CMD SHLIB %s', fn.3))#
+dyn.load(fn.2)#
+#
+## load the data which was simulated with lambda=0.5 and 32 species#
+## (lambda=0.5 is important, because as will be shown later, the model#
+## with lambda is the less likely model)#
+load('POM_mods_lambda_0.5_nsp_32_V8.rdata', verbose=T)#
+#
+#####################################################################
+## Calculate LL with small number of draws#
+#####################################################################
+#
+## If this is repeated a few times the resulting p-values vary quite #
+## a bit#
+#
+set.seed(1)#
+n.batch <- 1#
+#
+mod.lam <- pom.LL(mod.lam,#
+                  n.batches=n.batch,#
+                  batch.size=1000,#
+                  save.all.LLs=T)#
+#
+round(attr(mod.lam,  'stat.sum'), 4)
+QQ <- log(psi.mat*p.mat + (1-psi.mat)*boolXzero)
+## Importance sampling code for Perry#
+###
+## Fri March 5 2015#
+##************************************************************************#
+library(dclone)#
+library(R2jags)#
+library(scales)#
+#
+setwd('~/Dropbox/ccb_banding/analyses/occupancy-phylo/Code for Perry/round_2')#
+rm(list=ls())#
+#
+source('functionsFaster_lof.R') ## These are the functions you sent to us,#
+                            ## with a few modifications and additional#
+                            ## functions.  Completely new, or updated#
+                            ## functions begin on line 411#
+#
+## compile C code and load resultant .so object#
+fn.1 <- 'phyloOccLL.o'#
+fn.2 <- 'phyloOccLL.so'#
+fn.3 <- 'phyloOccLL.c'#
+if(file.exists(fn.1)) file.remove(fn.1)#
+if(file.exists(fn.2)) file.remove(fn.2)#
+system(sprintf('R CMD SHLIB %s', fn.3))#
+dyn.load(fn.2)#
+#
+## load the data which was simulated with lambda=0.5 and 32 species#
+## (lambda=0.5 is important, because as will be shown later, the model#
+## with lambda is the less likely model)#
+load('POM_mods_lambda_0.5_nsp_32_V8.rdata', verbose=T)#
+#
+#####################################################################
+## Calculate LL with small number of draws#
+#####################################################################
+#
+## If this is repeated a few times the resulting p-values vary quite #
+## a bit#
+#
+set.seed(1)#
+n.batch <- 1#
+#
+mod.lam <- pom.LL(mod.lam,#
+                  n.batches=n.batch,#
+                  batch.size=1000,#
+                  save.all.LLs=T)#
+#
+round(attr(mod.lam,  'stat.sum'), 4)
+## Fri March 5 2015#
+##************************************************************************#
+library(dclone)#
+library(R2jags)#
+library(scales)#
+#
+setwd('~/Dropbox/ccb_banding/analyses/occupancy-phylo/Code for Perry/round_2')#
+rm(list=ls())#
+#
+source('functionsFaster_lof.R') ## These are the functions you sent to us,#
+                            ## with a few modifications and additional#
+                            ## functions.  Completely new, or updated#
+                            ## functions begin on line 411#
+#
+## compile C code and load resultant .so object#
+fn.1 <- 'phyloOccLL.o'#
+fn.2 <- 'phyloOccLL.so'#
+fn.3 <- 'phyloOccLL.c'#
+if(file.exists(fn.1)) file.remove(fn.1)#
+if(file.exists(fn.2)) file.remove(fn.2)#
+system(sprintf('R CMD SHLIB %s', fn.3))#
+dyn.load(fn.2)#
+#
+## load the data which was simulated with lambda=0.5 and 32 species#
+## (lambda=0.5 is important, because as will be shown later, the model#
+## with lambda is the less likely model)#
+load('POM_mods_lambda_0.5_nsp_32_V8.rdata', verbose=T)#
+#
+#####################################################################
+## Calculate LL with small number of draws#
+#####################################################################
+#
+## If this is repeated a few times the resulting p-values vary quite #
+## a bit#
+#
+set.seed(1)#
+n.batch <- 1#
+#
+mod.lam <- pom.LL(mod.lam,#
+                  n.batches=n.batch,#
+                  batch.size=1000,#
+                  save.all.LLs=T)
+mod.lam <- pom.LL(mod.lam,#
+                  n.batches=n.batch,#
+                  batch.size=10000,#
+                  save.all.LLs=T)
+round(attr(mod.lam,  'stat.sum'), 4)
+## with lambda is the less likely model)#
+load('POM_mods_lambda_0.5_nsp_32_V8.rdata', verbose=T)#
+#
+#####################################################################
+## Calculate LL with small number of draws#
+#####################################################################
+#
+## If this is repeated a few times the resulting p-values vary quite #
+## a bit#
+#
+set.seed(1)#
+n.batch <- 1#
+#
+mod.lam <- pom.LL(mod.lam,#
+                  n.batches=n.batch,#
+                  batch.size=10000,#
+                  save.all.LLs=T)
+round(attr(mod.lam,  'stat.sum'), 4)
+## Importance sampling code for Perry#
+###
+## Fri March 5 2015#
+##************************************************************************#
+library(dclone)#
+library(R2jags)#
+library(scales)#
+#
+setwd('~/Dropbox/ccb_banding/analyses/occupancy-phylo/Code for Perry/round_2')#
+rm(list=ls())#
+#
+source('functionsFaster_lof.R') ## These are the functions you sent to us,#
+                            ## with a few modifications and additional#
+                            ## functions.  Completely new, or updated#
+                            ## functions begin on line 411#
+#
+## compile C code and load resultant .so object#
+fn.1 <- 'phyloOccLL.o'#
+fn.2 <- 'phyloOccLL.so'#
+fn.3 <- 'phyloOccLL.c'#
+if(file.exists(fn.1)) file.remove(fn.1)#
+if(file.exists(fn.2)) file.remove(fn.2)#
+system(sprintf('R CMD SHLIB %s', fn.3))#
+dyn.load(fn.2)#
+#
+## load the data which was simulated with lambda=0.5 and 32 species#
+## (lambda=0.5 is important, because as will be shown later, the model#
+## with lambda is the less likely model)#
+load('POM_mods_lambda_0.5_nsp_32_V8.rdata', verbose=T)#
+#
+#####################################################################
+## Calculate LL with small number of draws#
+#####################################################################
+#
+## If this is repeated a few times the resulting p-values vary quite #
+## a bit#
+#
+set.seed(1)#
+n.batch <- 1#
+#
+mod.lam <- pom.LL(mod.lam,#
+                  n.batches=n.batch,#
+                  batch.size=1000,#
+                  save.all.LLs=T)
+round(attr(mod.lam,  'stat.sum'), 4)
+##************************************************************************#
+## Importance sampling code for Perry#
+###
+## Fri March 5 2015#
+##************************************************************************#
+library(dclone)#
+library(R2jags)#
+library(scales)#
+#
+setwd('~/Dropbox/ccb_banding/analyses/occupancy-phylo/Code for Perry/round_2')#
+rm(list=ls())#
+#
+source('functionsFaster_lof.R') ## These are the functions you sent to us,#
+                            ## with a few modifications and additional#
+                            ## functions.  Completely new, or updated#
+                            ## functions begin on line 411#
+#
+## compile C code and load resultant .so object#
+fn.1 <- 'phyloOccLL.o'#
+fn.2 <- 'phyloOccLL.so'#
+fn.3 <- 'phyloOccLL.c'#
+if(file.exists(fn.1)) file.remove(fn.1)#
+if(file.exists(fn.2)) file.remove(fn.2)#
+system(sprintf('R CMD SHLIB %s', fn.3))#
+dyn.load(fn.2)#
+#
+## load the data which was simulated with lambda=0.5 and 32 species#
+## (lambda=0.5 is important, because as will be shown later, the model#
+## with lambda is the less likely model)#
+load('POM_mods_lambda_0.5_nsp_32_V8.rdata', verbose=T)#
+#
+#####################################################################
+## Calculate LL with small number of draws#
+#####################################################################
+#
+## If this is repeated a few times the resulting p-values vary quite #
+## a bit#
+#
+set.seed(1)#
+n.batch <- 1#
+#
+mod.lam <- pom.LL(mod.lam,#
+                  n.batches=n.batch,#
+                  batch.size=1000,#
+                  save.all.LLs=T)#
+#
+round(attr(mod.lam,  'stat.sum'), 4)
+## Fri March 5 2015#
+##************************************************************************#
+library(dclone)#
+library(R2jags)#
+library(scales)#
+#
+setwd('~/Dropbox/ccb_banding/analyses/occupancy-phylo/Code for Perry/round_2')#
+rm(list=ls())#
+#
+source('functionsFaster_lof.R') ## These are the functions you sent to us,#
+                            ## with a few modifications and additional#
+                            ## functions.  Completely new, or updated#
+                            ## functions begin on line 411#
+#
+## compile C code and load resultant .so object#
+fn.1 <- 'phyloOccLL.o'#
+fn.2 <- 'phyloOccLL.so'#
+fn.3 <- 'phyloOccLL.c'#
+if(file.exists(fn.1)) file.remove(fn.1)#
+if(file.exists(fn.2)) file.remove(fn.2)#
+system(sprintf('R CMD SHLIB %s', fn.3))#
+dyn.load(fn.2)#
+#
+## load the data which was simulated with lambda=0.5 and 32 species#
+## (lambda=0.5 is important, because as will be shown later, the model#
+## with lambda is the less likely model)#
+load('POM_mods_lambda_0.5_nsp_32_V8.rdata', verbose=T)#
+#
+#####################################################################
+## Calculate LL with small number of draws#
+#####################################################################
+#
+## If this is repeated a few times the resulting p-values vary quite #
+## a bit#
+#
+set.seed(1)#
+n.batch <- 1#
+#
+mod.lam <- pom.LL(mod.lam,#
+                  n.batches=n.batch,#
+                  batch.size=1000,#
+                  save.all.LLs=T)
+round(attr(mod.lam,  'stat.sum'), 4)
+## Fri March 5 2015#
+##************************************************************************#
+library(dclone)#
+library(R2jags)#
+library(scales)#
+#
+setwd('~/Dropbox/ccb_banding/analyses/occupancy-phylo/Code for Perry/round_2')#
+rm(list=ls())#
+#
+source('functionsFaster_lof.R') ## These are the functions you sent to us,#
+                            ## with a few modifications and additional#
+                            ## functions.  Completely new, or updated#
+                            ## functions begin on line 411#
+#
+## compile C code and load resultant .so object#
+fn.1 <- 'phyloOccLL.o'#
+fn.2 <- 'phyloOccLL.so'#
+fn.3 <- 'phyloOccLL.c'#
+if(file.exists(fn.1)) file.remove(fn.1)#
+if(file.exists(fn.2)) file.remove(fn.2)#
+system(sprintf('R CMD SHLIB %s', fn.3))#
+dyn.load(fn.2)#
+#
+## load the data which was simulated with lambda=0.5 and 32 species#
+## (lambda=0.5 is important, because as will be shown later, the model#
+## with lambda is the less likely model)#
+load('POM_mods_lambda_0.5_nsp_32_V8.rdata', verbose=T)#
+#
+#####################################################################
+## Calculate LL with small number of draws#
+#####################################################################
+#
+## If this is repeated a few times the resulting p-values vary quite #
+## a bit#
+#
+set.seed(1)#
+n.batch <- 1#
+#
+mod.lam <- pom.LL(mod.lam,#
+                  n.batches=n.batch,#
+                  batch.size=1000,#
+                  save.all.LLs=T)#
+#
+round(attr(mod.lam,  'stat.sum'), 4)
+## Fri March 5 2015#
+##************************************************************************#
+library(dclone)#
+library(R2jags)#
+library(scales)#
+#
+setwd('~/Dropbox/ccb_banding/analyses/occupancy-phylo/Code for Perry/round_2')#
+rm(list=ls())#
+#
+source('functionsFaster_lof.R') ## These are the functions you sent to us,#
+                            ## with a few modifications and additional#
+                            ## functions.  Completely new, or updated#
+                            ## functions begin on line 411#
+#
+## compile C code and load resultant .so object#
+fn.1 <- 'phyloOccLL.o'#
+fn.2 <- 'phyloOccLL.so'#
+fn.3 <- 'phyloOccLL.c'#
+if(file.exists(fn.1)) file.remove(fn.1)#
+if(file.exists(fn.2)) file.remove(fn.2)#
+system(sprintf('R CMD SHLIB %s', fn.3))#
+dyn.load(fn.2)#
+#
+## load the data which was simulated with lambda=0.5 and 32 species#
+## (lambda=0.5 is important, because as will be shown later, the model#
+## with lambda is the less likely model)#
+load('POM_mods_lambda_0.5_nsp_32_V8.rdata', verbose=T)#
+#
+#####################################################################
+## Calculate LL with small number of draws#
+#####################################################################
+#
+## If this is repeated a few times the resulting p-values vary quite #
+## a bit#
+#
+set.seed(1)#
+n.batch <- 1#
+#
+mod.lam <- pom.LL(mod.lam,#
+                  n.batches=n.batch,#
+                  batch.size=1000,#
+                  save.all.LLs=T)#
+#
+round(attr(mod.lam,  'stat.sum'), 4)
+## Fri March 5 2015#
+##************************************************************************#
+library(dclone)#
+library(R2jags)#
+library(scales)#
+#
+setwd('~/Dropbox/ccb_banding/analyses/occupancy-phylo/Code for Perry/round_2')#
+rm(list=ls())#
+#
+source('functionsFaster_lof.R') ## These are the functions you sent to us,#
+                            ## with a few modifications and additional#
+                            ## functions.  Completely new, or updated#
+                            ## functions begin on line 411#
+#
+## compile C code and load resultant .so object#
+fn.1 <- 'phyloOccLL.o'#
+fn.2 <- 'phyloOccLL.so'#
+fn.3 <- 'phyloOccLL.c'#
+if(file.exists(fn.1)) file.remove(fn.1)#
+if(file.exists(fn.2)) file.remove(fn.2)#
+system(sprintf('R CMD SHLIB %s', fn.3))#
+dyn.load(fn.2)#
+#
+## load the data which was simulated with lambda=0.5 and 32 species#
+## (lambda=0.5 is important, because as will be shown later, the model#
+## with lambda is the less likely model)#
+load('POM_mods_lambda_0.5_nsp_32_V8.rdata', verbose=T)#
+#
+#####################################################################
+## Calculate LL with small number of draws#
+#####################################################################
+#
+## If this is repeated a few times the resulting p-values vary quite #
+## a bit#
+#
+set.seed(1)#
+n.batch <- 1#
+#
+mod.lam <- pom.LL(mod.lam,#
+                  n.batches=n.batch,#
+                  batch.size=1000,#
+                  save.all.LLs=T)#
+#
+round(attr(mod.lam,  'stat.sum'), 4)
+setwd('~/Dropbox/ccb_banding/analyses/occupancy-phylo/Code for Perry/from_perry')#
+#
+## work on efficiency of the importance sampling step by Perry, started 2/3/15#
+## From "model summaries.R"#
+load('POM_mods_lambda_0.5_nsp_32_V1.rdata')
+setwd('~/Dropbox/ccb_banding/analyses/occupancy-phylo/src/from_perry')
+load('~/Dropbox/ccb_banding/analyses/occupancy-phylo/saved/dclone/POM_mods_lambda_0_nsp_32_V1.rdata')
+summary(mod.lam) # Lambda estimated
+summary(mod.null) # Lambda=0
+source('functionsFaster.R')
+system('R CMD SHLIB phyloOccLL.c')
+dyn.load('phyloOccLL.so')
+jags.LL.setup <- setup.jags.LL.faster(dclone.mod=mod.lam,#
+                                      draw.num=100)
+system.time(mod.lam <- jags.LL.faster(setup=jags.LL.setup,#
+                          dclone.mod=mod.lam,#
+                          draw.num = 1000,#
+                          detection=TRUE))
+mod.lam
