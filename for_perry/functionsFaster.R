@@ -278,15 +278,17 @@ make.par.calc.LL.faster <- function(prms=prms,
         X.p.mat <- X
         X.p.mat[X==1] <- p.mat[X==1]
         X.p.mat[X==0] <- 1-p.mat[X==0]
-        prod.det.hist <- apply(X.p.mat, c(1,2,4), prod)
-        browser()
+        Z.prod.prob.det <- apply(X.p.mat, c(1,2,4), prod)
+        X.psi.mat <- array(psi.mat, dim=dim(X))
+        Z.psi.mat <- X.psi.mat[,,1,]
+        Z.psi.mat * Z.prod.prob.det + (1-Z.psi.mat)
+        QQ <- log(Z.psi.mat)
+        ## browser()
         
-        ## calculate probability of X given psi.mat and p.mat
-        p.mat[boolXzero==1] <- 1-p.mat[boolXzero==1]
-        ## QQ <- log(psi.mat*p.mat + (1-psi.mat)*boolXzero)
-        QQ <- log(psi.mat*p.mat + (1-psi.mat)*boolZzero)
-
-        
+        ## ## calculate probability of X given psi.mat and p.mat
+        ## p.mat[boolXzero==1] <- 1-p.mat[boolXzero==1]
+        ## ## QQ <- log(psi.mat*p.mat + (1-psi.mat)*boolXzero)
+        ## QQ <- log(psi.mat*p.mat + (1-psi.mat)*boolZzero)
         
         LL.X.given.psi.and.p[iRow] <- sum(QQ)
       }
