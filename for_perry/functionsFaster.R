@@ -186,9 +186,6 @@ make.par.calc.LL.faster <- function(prms=prms,
   boolXzero <- as.integer(X==0)
   
   absent.all.reps <- apply(X, c(1,2,4), sum)==0
-  Z <- X*0
-  for(i in 1:(dim(Z)[3])) {Z[,,i,][absent.all.reps] <- 1}
-  boolZzero <- as.vector(Z)
   
   ## Xred<-aperm(X, c(1,2,4,3))
   ## Z.min<-apply(Xred, c(1,2,3), sum)==0
@@ -202,7 +199,7 @@ make.par.calc.LL.faster <- function(prms=prms,
   
   par.calc.LL.faster <- function(chain,
                                  random.draws=random.draws,
-                                 use.compiled=F) {
+                                 use.compiled=T) {
 
     p.0.mat      <- random.draws[, p.0.terms]
     psi.beta.mat <- random.draws[, psi.beta.terms]
@@ -251,16 +248,16 @@ make.par.calc.LL.faster <- function(prms=prms,
 
         psi.sp.int.vec <-
           rep(psi.site.mat[iRow,],
-              ncol(psi.year.mat)*nrep*length(psi.0.vec)) +
+              ncol(psi.year.mat)*length(psi.0.vec)) +
                 rep(rep(psi.year.mat[iRow,],
-                        each=ncol(psi.site.mat)), nrep*length(psi.0.vec)) +
+                        each=ncol(psi.site.mat)), length(psi.0.vec)) +
                           rep(psi.0.vec,
-                              each=ncol(psi.site.mat)*ncol(psi.year.mat)*nrep) 
-        
+                              each=ncol(psi.site.mat)*ncol(psi.year.mat)) 
+
         ## vector of species-specific environmental slopes
         psi.sp.slope.vec <-
-          rep(env, nyr * nrep * ncol(psi.beta.mat)) * ## first part static
-            rep(psi.beta.mat[iRow,], each=length(env) * nyr * nrep)
+          rep(env, nyr * ncol(psi.beta.mat)) * ## first part static
+            rep(psi.beta.mat[iRow,], each=length(env) * nyr)
         
         ## occupancy matrix
         psi.mat <- expit(psi.sp.int.vec + psi.sp.slope.vec)
@@ -279,13 +276,11 @@ make.par.calc.LL.faster <- function(prms=prms,
         X.p.mat[X==1] <- p.mat[X==1]
         X.p.mat[X==0] <- 1-p.mat[X==0]
         Z.prod.prob.det <- apply(X.p.mat, c(1,2,4), prod)
-        X.psi.mat <- array(psi.mat, dim=dim(X))
-        Z.psi.mat <- X.psi.mat[,,1,]
+        Z.psi.mat <- array(psi.mat, dim=dim(Z.prod.prob.det))
         QQ <- log(Z.psi.mat * Z.prod.prob.det +
                   (1-Z.psi.mat)*absent.all.reps)
-        ## browser()
         
-        ## ## calculate probability of X given psi.mat and p.mat
+        ## ## ## calculate probability of X given psi.mat and p.mat
         ## p.mat[boolXzero==1] <- 1-p.mat[boolXzero==1]
         ## ## QQ <- log(psi.mat*p.mat + (1-psi.mat)*boolXzero)
         ## QQ <- log(psi.mat*p.mat + (1-psi.mat)*boolZzero)
@@ -302,6 +297,7 @@ make.par.calc.LL.faster <- function(prms=prms,
       ##                                double *env,
       ##                                double *psi_0_vec,
       ##                                int *boolXzero,
+      ##                                int *boolZzero,
       ##                                int *pnumSamples,
       ##                                int *pnumSites,
       ##                                int *pnumYears,
@@ -319,7 +315,7 @@ make.par.calc.LL.faster <- function(prms=prms,
                                  env,
                                  psi.0.vec,
                                  as.integer(boolXzero),
-                                 as.integer(boolZzero),
+                                 as.integer(as.vector(absent.all.reps)),
                                  nrow(random.draws),
                                  dim(X)[1],
                                  dim(X)[2],
@@ -327,6 +323,7 @@ make.par.calc.LL.faster <- function(prms=prms,
                                  dim(X)[4],
                                  numeric(nrow(random.draws)),
                                  DUP=FALSE)[[14]]
+      
     }
     
     ## Calculate probability of random effect parameters given the

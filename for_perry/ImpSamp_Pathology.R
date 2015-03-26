@@ -2,6 +2,7 @@
 ## Importance sampling code for Perry
 ##************************************************************************
 rm(list=ls())
+setwd('~/Dropbox/ccb_banding/analyses/occupancy-phylo/for_perry')
 
 library(dclone)
 library(R2jags)
@@ -42,6 +43,7 @@ mod.lam <- pom.LL(mod.lam,
                   n.batches=n.batch,
                   batch.size=10000,
                   save.all.LLs=T)
+round(attr(mod.lam,  'stat.sum'), 4)
 
 mod.null <- pom.LL(mod.null,
                    n.batches=n.batch,
