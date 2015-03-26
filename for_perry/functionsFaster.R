@@ -184,7 +184,7 @@ make.par.calc.LL.faster <- function(prms=prms,
   psi.year.terms <- grep('psi.year',    names(mu.vec))
 
   boolXzero <- as.integer(X==0)
-
+  
   absent.all.reps <- apply(X, c(1,2,4), sum)==0
   Z <- X*0
   for(i in 1:(dim(Z)[3])) {Z[,,i,][absent.all.reps] <- 1}
@@ -202,7 +202,7 @@ make.par.calc.LL.faster <- function(prms=prms,
   
   par.calc.LL.faster <- function(chain,
                                  random.draws=random.draws,
-                                 use.compiled=T) {
+                                 use.compiled=F) {
 
     p.0.mat      <- random.draws[, p.0.terms]
     psi.beta.mat <- random.draws[, psi.beta.terms]
@@ -272,11 +272,21 @@ make.par.calc.LL.faster <- function(prms=prms,
         ## As long as species detectability does not depend on site or
         ## year this should work fine. Spp as final layer.
         p.mat <- rep(expit(p.0.mat[iRow,]), each=nsite*nyr*nrep)
+
+        ## compute probabilities of detection histories, given
+        ## presence
+        X.p.mat <- X
+        X.p.mat[X==1] <- p.mat[X==1]
+        X.p.mat[X==0] <- 1-p.mat[X==0]
+        prod.det.hist <- apply(X.p.mat, c(1,2,4), prod)
+        browser()
         
         ## calculate probability of X given psi.mat and p.mat
         p.mat[boolXzero==1] <- 1-p.mat[boolXzero==1]
         ## QQ <- log(psi.mat*p.mat + (1-psi.mat)*boolXzero)
         QQ <- log(psi.mat*p.mat + (1-psi.mat)*boolZzero)
+
+        
         
         LL.X.given.psi.and.p[iRow] <- sum(QQ)
       }
