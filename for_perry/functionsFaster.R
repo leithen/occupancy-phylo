@@ -281,8 +281,7 @@ make.par.calc.LL.faster <- function(prms=prms,
         Z.prod.prob.det <- apply(X.p.mat, c(1,2,4), prod)
         X.psi.mat <- array(psi.mat, dim=dim(X))
         Z.psi.mat <- X.psi.mat[,,1,]
-        Z.psi.mat * Z.prod.prob.det + (1-Z.psi.mat)
-        QQ <- log(Z.psi.mat)
+        QQ <- log(Z.psi.mat * Z.prod.prob.det + (1-Z.psi.mat))
         ## browser()
         
         ## ## calculate probability of X given psi.mat and p.mat
