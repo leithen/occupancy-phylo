@@ -132,17 +132,16 @@ jags.LL.faster <- function(setup,
   } 
   
   if (return.model.object==FALSE) {
-  	if (save.all.LLs) {
-  	  return(vals)
-  	}
-  	else{
+    if (save.all.LLs) {
+      return(vals)
+    }
+    else{
       mean.vals <- log(mean(exp(vals - mean(vals)))) + mean(vals)
       se.vals <- sqrt(var(vals-mean(vals)))/sqrt(length(vals))
       return(c(mean.vals, se.vals))
     }
   }
 }
-
 
 ## Does a one-time setup calculations and then returns a function that
 ## computes from a block of random.draws.
@@ -184,13 +183,23 @@ make.par.calc.LL.faster <- function(prms=prms,
   psi.site.terms <- grep('psi.site',    names(mu.vec))
   psi.year.terms <- grep('psi.year',    names(mu.vec))
 
-  boolXzero <- as.vector(X==0)
+  boolXzero <- as.integer(X==0)
+  
+  absent.all.reps <- apply(X, c(1,2,4), sum)==0
+  
+  ## Xred<-aperm(X, c(1,2,4,3))
+  ## Z.min<-apply(Xred, c(1,2,3), sum)==0
+  ## Zred<-array( rep(as.vector(Z.min), nrep), dim=c(nsite, nyr, nsp, nrep))
+  ## boolZzero <-aperm(Zred, c(1,2,4,3))
+  ## dimnames(boolZzero)<-dimnames(X)
+  ## boolZzero<-as.vector(boolZzero)
 
+  
   mvnorm.funs.RR.psi.beta <- make.mvnorm.funs(rep(0, nsp), lambda.mat)
   
   par.calc.LL.faster <- function(chain,
                                  random.draws=random.draws,
-                                 use.compiled=TRUE) {
+                                 use.compiled=T) {
 
     p.0.mat      <- random.draws[, p.0.terms]
     psi.beta.mat <- random.draws[, psi.beta.terms]
@@ -208,8 +217,6 @@ make.par.calc.LL.faster <- function(prms=prms,
     ##                          mean=rep(mu.psi.beta, nsp),
     ##                          sigma=((sigma.psi.beta^2)/(2*alpha))*exp(-2*alpha*(1-VCOV))*(1-exp(-2*alpha*VCOV)),
     ##                          log=TRUE)
-
-
     
     LL.psi.beta.given.theta <- RR.psi.beta
 
@@ -230,29 +237,27 @@ make.par.calc.LL.faster <- function(prms=prms,
                     sd=sigma.p.0,
                     log=TRUE)
     LL.p.given.theta <- rowSums(RR.p.0)
-
     
     ## Calculates probability of obtaining a certain occupancy status
     ## at a site, at a year, (and if this were actually on
     ## observations rather than occupancy, during a rep), given the
     ## expected psi for the species at the site.
-    
     if(!use.compiled) { 
       LL.X.given.psi.and.p <- numeric(nrow(random.draws))
       for(iRow in 1:nrow(random.draws)) {
 
         psi.sp.int.vec <-
           rep(psi.site.mat[iRow,],
-              ncol(psi.year.mat)*nrep*length(psi.0.vec)) +
+              ncol(psi.year.mat)*length(psi.0.vec)) +
                 rep(rep(psi.year.mat[iRow,],
-                        each=ncol(psi.site.mat)), nrep*length(psi.0.vec)) +
+                        each=ncol(psi.site.mat)), length(psi.0.vec)) +
                           rep(psi.0.vec,
-                              each=ncol(psi.site.mat)*ncol(psi.year.mat)*nrep) 
-        
+                              each=ncol(psi.site.mat)*ncol(psi.year.mat)) 
+
         ## vector of species-specific environmental slopes
         psi.sp.slope.vec <-
-          rep(env, nyr * nrep * ncol(psi.beta.mat)) * ## first part static
-            rep(psi.beta.mat[iRow,], each=length(env) * nyr * nrep)
+          rep(env, nyr * ncol(psi.beta.mat)) * ## first part static
+            rep(psi.beta.mat[iRow,], each=length(env) * nyr)
         
         ## occupancy matrix
         psi.mat <- expit(psi.sp.int.vec + psi.sp.slope.vec)
@@ -264,13 +269,21 @@ make.par.calc.LL.faster <- function(prms=prms,
         ## As long as species detectability does not depend on site or
         ## year this should work fine. Spp as final layer.
         p.mat <- rep(expit(p.0.mat[iRow,]), each=nsite*nyr*nrep)
+
+        ## compute probabilities of detection histories, given
+        ## presence
+        X.p.mat <- X
+        X.p.mat[X==1] <- p.mat[X==1]
+        X.p.mat[X==0] <- 1-p.mat[X==0]
+        Z.prod.prob.det <- apply(X.p.mat, c(1,2,4), prod)
+        Z.psi.mat <- array(psi.mat, dim=dim(Z.prod.prob.det))
+        QQ <- log(Z.psi.mat * Z.prod.prob.det +
+                  (1-Z.psi.mat)*absent.all.reps)
         
-        ## calculate probability of X given psi.mat and p.mat
-        ## or could be written as below (more intuitive but slower):
-        ## QQ <- log((1-boolXzero) * psi.mat*p.mat +
-        ##           boolXzero     * (psi.mat*(1-p.mat) + (1-psi.mat)))
-        p.mat[boolXzero] <- 1-p.mat[boolXzero]
-        QQ <- log(psi.mat*p.mat + (1-psi.mat)*boolXzero)
+        ## ## ## calculate probability of X given psi.mat and p.mat
+        ## p.mat[boolXzero==1] <- 1-p.mat[boolXzero==1]
+        ## ## QQ <- log(psi.mat*p.mat + (1-psi.mat)*boolXzero)
+        ## QQ <- log(psi.mat*p.mat + (1-psi.mat)*boolZzero)
         
         LL.X.given.psi.and.p[iRow] <- sum(QQ)
       }
@@ -284,6 +297,7 @@ make.par.calc.LL.faster <- function(prms=prms,
       ##                                double *env,
       ##                                double *psi_0_vec,
       ##                                int *boolXzero,
+      ##                                int *boolZzero,
       ##                                int *pnumSamples,
       ##                                int *pnumSites,
       ##                                int *pnumYears,
@@ -292,7 +306,7 @@ make.par.calc.LL.faster <- function(prms=prms,
       ##                                double *LL )
 
       expit.p.0.mat <- expit(p.0.mat)
-      
+
       LL.X.given.psi.and.p <- .C('sample_phylo_occupancy_ll',
                                  expit.p.0.mat,
                                  psi.beta.mat,
@@ -300,14 +314,16 @@ make.par.calc.LL.faster <- function(prms=prms,
                                  psi.year.mat,
                                  env,
                                  psi.0.vec,
-                                 boolXzero,
+                                 as.integer(boolXzero),
+                                 as.integer(as.vector(absent.all.reps)),
                                  nrow(random.draws),
                                  dim(X)[1],
                                  dim(X)[2],
                                  dim(X)[3],
                                  dim(X)[4],
                                  numeric(nrow(random.draws)),
-                                 DUP=FALSE)[[13]]
+                                 DUP=FALSE)[[14]]
+      
     }
     
     ## Calculate probability of random effect parameters given the
@@ -372,15 +388,17 @@ anova.pom <- function(object, ...) {
   aod
 }
 
-
-
 imp.samp.plot <- function(object ,...) {
   aux <- list(object, ...)
   ancall <- sys.call()
   ancall$verbose <- ancall$test <- NULL
   
-  x.most <- max(unlist(lapply(1:length(aux), function(x) {length(attr(aux[[x]], 'lik.vals'))})))
-  y.range <- range(unlist(lapply(1:length(aux), function(x) {(attr(aux[[x]], 'lik.vals'))})))
+  x.most <-
+    max(unlist(lapply(1:length(aux),
+                      function(x) length(attr(aux[[x]], 'lik.vals')))))
+  y.range <-
+    range(unlist(lapply(1:length(aux),
+                        function(x) (attr(aux[[x]], 'lik.vals')))))
   colz <- rainbow(length(aux))
 
   plot(0,0, ylab='Log Likelihoods', xlab='Draw Number', 
@@ -394,7 +412,9 @@ imp.samp.plot <- function(object ,...) {
     notch <- length(vals)/1000
     
     for (j in 1:1000) {
-      ot[[i]][j] <- log(mean(exp(vals[1:(j*notch)]-mean(vals[1:(j*notch)]))))+ mean(vals[1:(j*notch)])
+      ot[[i]][j] <- log(mean(exp(vals[1:(j*notch)] -
+                                 mean(vals[1:(j*notch)])))) +
+                                   mean(vals[1:(j*notch)])
     }
     x <- seq(notch, length(vals) , by=notch)
 
@@ -406,24 +426,25 @@ imp.samp.plot <- function(object ,...) {
     points(x, ot[[i]], type='l', col=colz[i], lwd=3)
   }
 
-  namez <- unlist(lapply(as.list(ancall[-1L]), 
-                         deparse))
+  namez <- unlist(lapply(as.list(ancall[-1L]), deparse))
   legend('bottomleft', namez, lwd=3, col=colz)
 }
 
+######################################################################
+##  Luke and Leithen's additions to Perry's functions
+######################################################################
 
-####Luke's additions to Perry's functions
-
-
-batch.wrapper <- function(dclone.mod, batch.size, n.batches, save.all.LLs=save.all.LLs) {
+batch.wrapper <- function(dclone.mod,
+                          batch.size,
+                          n.batches,
+                          save.all.LLs=save.all.LLs) {
   
   draw.num <- batch.size
   
-  if (save.all.LLs) {
-  	LLs<-matrix(nrow=batch.size, ncol=n.batches)
-    }
-  else {
-  	LLs <- numeric()
+  if(save.all.LLs) {
+    LLs <- matrix(nrow=batch.size, ncol=n.batches)
+  } else {
+    LLs <- numeric()
   }
   
   for (i in 1:n.batches) {
@@ -436,28 +457,37 @@ batch.wrapper <- function(dclone.mod, batch.size, n.batches, save.all.LLs=save.a
                            detection=TRUE,
                            return.model.object=FALSE,
                            save.all.LLs=save.all.LLs)
-    if (save.all.LLs) {
-    	LLs[,i]<-valz
-    }
-    
-    else {
+    if(save.all.LLs) {
+      LLs[,i] <- valz
+    } else {
       LLs[i] <- valz[1] 
     }
   }
-  
   LLs
-  
 }
 
-
-pom.LL <- function(dclone.mod, n.cores, n.batches, batch.size=100000, save.all.LLs=F) {
-
+pom.LL <- function(dclone.mod,
+                   n.cores=1,
+                   n.batches,
+                   batch.size=100000,
+                   save.all.LLs=F) {
+  
+  ## Paritions all draws among available cores. batch.wrapper loops 
+  ## on each core for the total number of batches. This results in 
+  ## a absolute total number of draws equal to 
+  ## n.cores * n.batches * batch.size
+  
+  ## save.all.LLs argument is included to save each LL draw, rather 
+  ## than just a batch wide average. Turning this argument on 
+  ## results in massive objects, so probably only worth having 
+  ## save.all.LLs = TRUE for debugging.
+  
   vals <- mclapply(1:n.cores, function(x)
                    batch.wrapper(dclone.mod=dclone.mod,
                                  batch.size=batch.size, 
                                  n.batches=n.batches,
                                  save.all.LLs=save.all.LLs),
-                                 mc.cores=n.cores)
+                   mc.cores=n.cores)
   
   vals <- unlist(vals)
   vals <- as.numeric(vals)		
@@ -468,15 +498,13 @@ pom.LL <- function(dclone.mod, n.cores, n.batches, batch.size=100000, save.all.L
   AIC <- round(2*length(coef(dclone.mod)) - 2* mean.vals, 3)
   Samples <- n.cores*n.batches*batch.size
   
-  if (save.all.LLs) {
+  if(save.all.LLs) {
     se.vals <- sqrt(var(vals-mean(vals)))/sqrt(length(vals))
     out <- c(mean.vals, AIC, Samples, se.vals)
     names(out) <- c('LL', 'AIC', 'Samples', 'SE.LL')
-  }
-  
-  else {
+  } else {
     out <- c(mean.vals, AIC, Samples)
-  	names(out) <- c('LL', 'AIC', 'Samples')
+    names(out) <- c('LL', 'AIC', 'Samples')
   }
   
   attr(dclone.mod, 'stat.sum') <- out

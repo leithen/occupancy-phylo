@@ -29,11 +29,13 @@ void sample_phylo_occupancy_ll(double *expit_p_0_samples,
   
   for(iSample = 0; iSample < numSamples; iSample++) {
     sumQQ = 0;
-    iX = 0;
     iZ = 0;
 
     for(iSpecies = 0; iSpecies < numSpecies; iSpecies++) {
+      C2 = psi_beta_samples[iSample + iSpecies * numSamples];
       for(iYear = 0; iYear < numYears; iYear++) {
+	C1 = psi_0_vec[iSpecies] + 
+	  psi_year_samples[iSample + iYear * numSamples];	
 	for(iSite = 0; iSite < numSites; iSite++) {
 
 	  /* detectability */
@@ -48,15 +50,10 @@ void sample_phylo_occupancy_ll(double *expit_p_0_samples,
 			 numSites*iYear + 
 			 numSites*numYears*iRep +
 			 numSites*numYears*numReps*iSpecies]==1) { prodPP *= (1.-p); }
-	    iX++;
 	  }
 
 	  /* occupancy */
-	  C1 = psi_0_vec[iSpecies] + psi_year_samples[iSample + iYear * numSamples];
-	  C2 = psi_beta_samples[iSample + iSpecies * numSamples];
-
 	  psi_sp_int = psi_site_samples[iSample + iSite * numSamples] + C1;
-
 	  psi_sp_slope = env[iSite] * C2;
 	  psi = expit(psi_sp_int + psi_sp_slope);
 

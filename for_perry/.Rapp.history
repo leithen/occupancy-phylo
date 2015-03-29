@@ -1,729 +1,463 @@
-get.closest <- function(site, date) {#
-  dd.focal <- dd[dd$Site==site,]#
-  if(nrow(dd.focal)==0) return(NA)#
-  ## which(unique(dd.#
-  ## which()#
-  browser()#
-}#
-mapply(get.closest, site=hill.sites, date=hill.dates)
-unique(dd$Date)
-dates <- unique(dd$Date)
-dates
-date-dates
-abs(date-dates)
-min(abs(date-dates))
-closest.date <- dates[which(abs(date-dates)==min(abs(date-dates)))]
-closest.date
-date
-Q
-## extract hillary's sites:#
-load('~/Dropbox/hedgerow/data_sets/traditional/specimens-complete.RData')#
-dd$Date <- as.Date(dd$Date, '%Y-%m-%d')#
-#
-dd.hill <- read.csv('~/Desktop/HillarysSites.csv', as.is=TRUE)#
-hill.dates <- as.Date(dd.hill$DateEtrap, '%m/%d/%y')#
-hill.sites <- dd.hill$Site#
-#
-get.closest <- function(site, date) {#
-  dd.focal <- dd[dd$Site==site,]#
-  if(nrow(dd.focal)==0) return(NA)#
-  dates <- unique(dd.focal$Date)#
-  closest.date <- dates[which(abs(date-dates)==min(abs(date-dates)))]#
-  dd.focal[dd.focal$Date==closest.date,]#
-}#
-mapply(get.closest, site=hill.sites, date=hill.dates)
-subsets <- mapply(get.closest, site=hill.sites, date=hill.dates)
-which(is.na(substes))
-which(is.na(subsets))
-missing <- which(is.na(subsets))#
-substes <- subsets[!missing]
-subsets <- subsets[!missing]#
-new.data.set <- do.call(rbind, subsets)
-new.data.set
-subsets <- subsets[!missing]
-subsets
-## extract hillary's sites:#
-load('~/Dropbox/hedgerow/data_sets/traditional/specimens-complete.RData')#
-dd$Date <- as.Date(dd$Date, '%Y-%m-%d')#
-#
-dd.hill <- read.csv('~/Desktop/HillarysSites.csv', as.is=TRUE)#
-hill.dates <- as.Date(dd.hill$DateEtrap, '%m/%d/%y')#
-hill.sites <- dd.hill$Site#
-#
-get.closest <- function(site, date) {#
-  dd.focal <- dd[dd$Site==site,]#
-  if(nrow(dd.focal)==0) return(NA)#
-  dates <- unique(dd.focal$Date)#
-  closest.date <- dates[which(abs(date-dates)==min(abs(date-dates)))]#
-  dd.focal[dd.focal$Date==closest.date,]#
-}#
-subsets <- mapply(get.closest, site=hill.sites, date=hill.dates)#
-## locate sites with no corresponding specimen data#
-missing <- which(is.na(subsets))#
-subsets <- subsets[!missing]
-lapply(subsets, dim)
-subsets
-subsets <- mapply(get.closest, site=hill.sites, date=hill.dates)
-length(subsets)
-missing <- which(is.na(subsets))
-missing
-?mapply
-## extract hillary's sites:#
-load('~/Dropbox/hedgerow/data_sets/traditional/specimens-complete.RData')#
-dd$Date <- as.Date(dd$Date, '%Y-%m-%d')#
-#
-dd.hill <- read.csv('~/Desktop/HillarysSites.csv', as.is=TRUE)#
-hill.dates <- as.Date(dd.hill$DateEtrap, '%m/%d/%y')#
-hill.sites <- dd.hill$Site#
-#
-get.closest <- function(site, date) {#
-  dd.focal <- dd[dd$Site==site,]#
-  if(nrow(dd.focal)==0) return(NA)#
-  dates <- unique(dd.focal$Date)#
-  closest.date <- dates[which(abs(date-dates)==min(abs(date-dates)))]#
-  dd.focal[dd.focal$Date==closest.date,]#
-}#
-subsets <- mapply(get.closest, site=hill.sites, date=hill.dates,#
-                  SIMPLIFY=FALSE)#
-## locate sites with no corresponding specimen data#
-missing <- which(is.na(subsets))#
-subsets <- subsets[[!missing]]
-subsets <- mapply(get.closest, site=hill.sites, date=hill.dates,#
-                  SIMPLIFY=FALSE)
-missing
-missing <- which(is.na(subsets))#
-subsets <- subsets[-missing]
-new.data.set <- do.call(rbind, subsets)
-dim(new.data.set)
-head(new.data.set)
-16001-#
-1565-#
-1954
-load('~/Dropbox/occupancy/analyses/multi-species/multi-season/saved/no_rand_yr_effect/complete/baci/net/bee.syr/full-1.RData')
-names(res)
-names(res$data)
-res$data$dprime.actual
-res$data$dprime
-plot(res$data$dprime.actual, res$data$dprime)
-14701-#
-1565-#
-1940+#
-628
-14701-#
-1565-#
-1940+#
-628+1300
-1500*0.05
-18000+8500
-365/40
-620-72
-26425-#
-2083+#
-620
-356*0.02
-26425-#
-2159+#
-620
-20.84+18.94+74.95+356.93+14.99+70
-load('~/Dropbox/ccb_banding/analyses/recapture/saved/jags/WRMA-summary.RData')
-rows <- c('p',#
-          'phi.cover',#
-          'phi.0',#
-          'phi[1]',#
-          'phi[2]',#
-          'phi[3]',#
-          'phi[4]') ## params to look at#
-cols <- c('mean', '2.5%', '97.5%', 'Rhat', 'n.eff')#
-summary$bugs[rows,cols]
-load(sprintf('analyses/recapture/saved/jags/%s-summary.RData', species))#
-rows <- c('p',#
-          'decay.forest',#
-          'phi.0',#
-          'phi[1]',#
-          'phi[2]',#
-          'phi[3]',#
-          'phi[4]') ## params to look at#
-cols <- c('mean', '2.5%', '97.5%', 'Rhat', 'n.eff')#
-summary$bugs[rows,cols]#
-## ************************************************************
-summary$bugs
-load(sprintf('analyses/recapture/saved/jags/%s-summary.RData', species))#
-rows <- c('p[1]',#
-          'decay.forest',#
-          'phi.0',#
-          'phi[1]',#
-          'phi[2]',#
-          'phi[3]',#
-          'phi[4]') ## params to look at#
-cols <- c('mean', '2.5%', '97.5%', 'Rhat', 'n.eff')#
-summary$bugs[rows,cols]#
-## ************************************************************
-load(sprintf('analyses/recapture/saved/jags/%s-summary.RData', species))#
-rows <- c('p[1]',#
-          'decay.forest',#
-          'phi.0',#
-          'phi.forest',#
-          'psi') ## params to look at#
-cols <- c('mean', '2.5%', '97.5%', 'Rhat', 'n.eff')#
-summary$bugs[rows,cols]#
-## ************************************************************
-3264*2448
-18.63+5+0.56
-27849+880
-28729-#
-1565
-27849+880
-27849+880-1565
-545/4000
-88+55
-88+50
-88+50+33+33
-83+50+33+33
-88+50+33+33
-409/8
-40*51*52
-29054-#
-214
-210/60
-mean(c(10*12,7,1,1)
-mean(c(10*12,7,1,1))
-mean(c(10*12,7,1,1))/12
-mean(c(10*12,7,1))/12
-mean(c(10*12,7,1,1))/12
-mean(c(10*12,17,8,7))/12
-mean(c(10*12,12,8,7))/12
-mean(c(10*12,24,18,17))/12
-8367/3
-52*0.75
-39/2
-2789*19
-2789*19-2000*12
-8367*19
-56578*2+50575
-56578*2+50575+15000
-37207-777
-4097*1.2
-4097*2
-4097.7*2
-4097.7*12*0.75
-4097.7*52*0.75
-3687.93*52*0.75
-3687.93*52/2*0.75
-(3687.93+409.77)*52/2*0.75
-3687.93+409.77
-4097.7/80
-2356.44*80/64
-2945.55*52/2*0.75
-2945.55*52/2*0.75-1565*5-1600*4-800
-library('ape')#
-library('dclone')#
-library('geiger')#
-library('MASS')#
-library('phytools')#
-library('scales')
-library('ape')#
-library('dclone')#
-library('geiger')#
-library('MASS')#
-library('phytools')#
-library('scales')#
-#
-## Load Model data#
-###
-## Correctly identifies phylogenetic signal#
-load('~/Desktop/POM_mods_lambda_0.5_nsp_32_V1.rdata')
-## Parameter estimates for both models.#
-summary(mod.lam) # Lambda estimated#
-summary(mod.null) # Lambda=0
-rm(list=ls())#
-#
-library('ape')#
-library('dclone')#
-library('geiger')#
-library('MASS')#
-library('phytools')#
-library('scales')#
-#
-## Load Model data#
-###
-## Correctly identifies phylogenetic signal#
-load('~/Desktop/POM_mods_lambda_0.5_nsp_32_V1.rdata')
-ls()
-x<-
-load('~/Desktop/POM_mods_lambda_0.5_nsp_32_V1.rdata')
-names(x)
+hold<-matrix(unlist(lapply(out.hold,function(x) {abs(x[,1]-1)})), ncol=2, byrow=T)
+hold
+hold<-data.frame(hold);names(hold)<-c("NOM","POM")
+apply(hold, 2, mean)
+min(hold)
+x<-hold[1,]
+min(x)
 x
-## Parameter estimates for both models.#
-summary(mod.lam) # Lambda estimated#
-summary(mod.null) # Lambda=0
-summary(attributes(mod.lam))
-## Whether model has lambda paramter or not, used to decide which#
-## likelihood calculation to use in jags.LL function below#
-attr(mod.lam, "model.case")
-attr(mod.lam, "jags.mod")
-attr(mod.lam, "lik.vals")
-attr(mod.lam, "stat.sum")
-## Running jags.LL function to caluclate LLs for specified number of#
-## random draws. Functions currently set to add attributes of#
-## likelihood values for all simulations, and a set of statistical#
-## summaries based on those likelihoods, to the original model#
-## object. Detection here should always be TRUE since imperfect#
-## detection is included in all these models.#
-mod.lam <- jags.LL(dclone.mod=mod.lam,#
-                   draw.num=100,#
-                   num.cores=4,#
-                   detection=T)
+min(x)
+x[min(x)]
+x==min(x)
+apply(hold, 1, function (x) {x==min(x)})
+apply(hold, 2, function (x) {x==min(x)})
+apply(hold, 1, function (x) {x==min(x)})
+t(apply(hold, 1, function (x) {x==min(x)}))
+apply(t(apply(hold, 1, function (x) {x==min(x)})), 2, sum)
+out.hold<-lapply(nsp16_lambda1_lambdatrait_0, extract.summary)
+hold<-matrix(unlist(lapply(out.hold,function(x) {apply((x[,2:3]), 1, diff)})), ncol=2, byrow=T)#
+bci.inf<-hold[,1]/hold[,2]#
+mean(bci.inf)
+hold<-matrix(unlist(lapply(out.hold,function(x) {x[,2] < 1 & x[,3] > 1})), ncol=2, byrow=T)#
+hold<-data.frame(hold);names(hold)<-c("NOM","POM")#
+head(hold)#
+apply(hold, 2, sum)
+### Which estimate is closer to the true estimate?#
+hold<-matrix(unlist(lapply(out.hold,function(x) {abs(x[,1]-1)})), ncol=2, byrow=T)#
+hold<-data.frame(hold);names(hold)<-c("NOM","POM")#
+apply(hold, 2, mean)
+x<-hold[1,]#
+apply(t(apply(hold, 1, function (x) {x==min(x)})), 2, sum)
+out.hold<-lapply(nsp16_lambda1_lambdatrait_1, extract.summary)
+### What's the breadth of the confidence intervals#
+hold<-matrix(unlist(lapply(out.hold,function(x) {apply((x[,2:3]), 1, diff)})), ncol=2, byrow=T)#
+bci.inf<-hold[,1]/hold[,2]#
+mean(bci.inf)
+### Does the confidence interval contain the true value?#
+hold<-matrix(unlist(lapply(out.hold,function(x) {x[,2] < 1 & x[,3] > 1})), ncol=2, byrow=T)#
+hold<-data.frame(hold);names(hold)<-c("NOM","POM")#
+head(hold)#
+apply(hold, 2, sum)
+### Which estimate is closer to the true estimate?#
+hold<-matrix(unlist(lapply(out.hold,function(x) {abs(x[,1]-1)})), ncol=2, byrow=T)#
+hold<-data.frame(hold);names(hold)<-c("NOM","POM")#
+apply(hold, 2, mean)
+### Which model is better#
+x<-hold[1,]#
+apply(t(apply(hold, 1, function (x) {x==min(x)})), 2, sum)
+load('~/Dropbox/ccb_banding/analyses/occupancy-phylo/saved/traits/nsp32-1-0.rdata', verbose=T)
+hold<-matrix(unlist(lapply(out.hold,function(x) {apply((x[,2:3]), 1, diff)})), ncol=2, byrow=T)#
+bci.inf<-hold[,1]/hold[,2]#
+mean(bci.inf)
+### Does the confidence interval contain the true value?#
+hold<-matrix(unlist(lapply(out.hold,function(x) {x[,2] < 1 & x[,3] > 1})), ncol=2, byrow=T)#
+hold<-data.frame(hold);names(hold)<-c("NOM","POM")#
+head(hold)#
+apply(hold, 2, sum)
+out.hold<-load('~/Dropbox/ccb_banding/analyses/occupancy-phylo/saved/traits/nsp32-1-0.rdata', verbose=T)
+out.hold
+out.hold(lapply(nsp32_lambda1_lambdatrait_0, extract.summary))
+out.hold<-lapply(nsp32_lambda1_lambdatrait_0, extract.summary)
+### What's the breadth of the confidence intervals#
+hold<-matrix(unlist(lapply(out.hold,function(x) {apply((x[,2:3]), 1, diff)})), ncol=2, byrow=T)#
+bci.inf<-hold[,1]/hold[,2]#
+mean(bci.inf)
+### Does the confidence interval contain the true value?#
+hold<-matrix(unlist(lapply(out.hold,function(x) {x[,2] < 1 & x[,3] > 1})), ncol=2, byrow=T)#
+hold<-data.frame(hold);names(hold)<-c("NOM","POM")#
+head(hold)#
+apply(hold, 2, sum)
+### Which estimate is closer to the true estimate?#
+hold<-matrix(unlist(lapply(out.hold,function(x) {abs(x[,1]-1)})), ncol=2, byrow=T)#
+hold<-data.frame(hold);names(hold)<-c("NOM","POM")#
+apply(hold, 2, mean)
+### Which model is better#
+x<-hold[1,]#
+apply(t(apply(hold, 1, function (x) {x==min(x)})), 2, sum)
+load('~/Dropbox/ccb_banding/analyses/occupancy-phylo/saved/traits/nsp32-1-1.rdata', verbose=T)
+out.hold<-lapply(nsp32_lambda1_lambdatrait_1, extract.summary)
+### What's the breadth of the confidence intervals#
+hold<-matrix(unlist(lapply(out.hold,function(x) {apply((x[,2:3]), 1, diff)})), ncol=2, byrow=T)#
+bci.inf<-hold[,1]/hold[,2]#
+mean(bci.inf)
+### Does the confidence interval contain the true value?#
+hold<-matrix(unlist(lapply(out.hold,function(x) {x[,2] < 1 & x[,3] > 1})), ncol=2, byrow=T)#
+hold<-data.frame(hold);names(hold)<-c("NOM","POM")#
+head(hold)#
+apply(hold, 2, sum)
+### Which estimate is closer to the true estimate?#
+hold<-matrix(unlist(lapply(out.hold,function(x) {abs(x[,1]-1)})), ncol=2, byrow=T)#
+hold<-data.frame(hold);names(hold)<-c("NOM","POM")#
+apply(hold, 2, mean)
+### Which model is better#
+x<-hold[1,]#
+apply(t(apply(hold, 1, function (x) {x==min(x)})), 2, sum)
+hold<-matrix(unlist(lapply(out.hold,function(x) {x[,6]})), ncol=2, byrow=T)
+hold
+length(which(hold[,2]>0.5))/100
+length(which(hold[,2]>0.6667))/100
+length(which(hold[,2]>0.745))/100
+length(which(hold[,2]>0.95))/100
+length(which(hold[,2]>0.90))/100
+hold<-matrix(unlist(lapply(out.hold,function(x) {x[,2] < 1 & x[,3] > 1})), ncol=2, byrow=T)#
+hold<-data.frame(hold);names(hold)<-c("NOM","POM")#
+head(hold)#
+apply(hold, 2, sum)
+### Which estimate is closer to the true estimate?#
+hold<-matrix(unlist(lapply(out.hold,function(x) {abs(x[,1]-1)})), ncol=2, byrow=T)#
+hold<-data.frame(hold);names(hold)<-c("NOM","POM")#
+apply(hold, 2, mean)
+### Which model is better#
+x<-hold[1,]#
+apply(t(apply(hold, 1, function (x) {x==min(x)})), 2, sum)
+hold<-matrix(unlist(lapply(out.hold,function(x) {apply((x[,2:3]), 1, diff)})), ncol=2, byrow=T)
+hold
+apply(hold, 1, mean)
+apply(hold, 2, mean)
+load('~/Dropbox/ccb_banding/analyses/occupancy-phylo/saved/traits/nsp16.rdata', verbose=T)
+out.hold<-lapply(nsp16_lambda0_lambdatrait_0, extract.summary)
+hold<-matrix(unlist(lapply(out.hold,function(x) {apply((x[,2:3]), 1, diff)})), ncol=2, byrow=T)
+apply(hold, 2, mean)
+bci.inf<-hold[,1]/hold[,2]
+mean(bci.inf)
+### Does the confidence interval contain the true value?#
+hold<-matrix(unlist(lapply(out.hold,function(x) {x[,2] < 1 & x[,3] > 1})), ncol=2, byrow=T)#
+hold<-data.frame(hold);names(hold)<-c("NOM","POM")#
+head(hold)#
+apply(hold, 2, sum)
+hold<-matrix(unlist(lapply(out.hold,function(x) {abs(x[,1]-1)})), ncol=2, byrow=T)#
+hold<-data.frame(hold);names(hold)<-c("NOM","POM")#
+apply(hold, 2, mean)
+apply(t(apply(hold, 1, function (x) {x==min(x)})), 2, sum)
+bci.inf<-hold[,1]/hold[,2]
+mean(bci.inf)
+hold<-matrix(unlist(lapply(out.hold,function(x) {abs(x[,1]-1)})), ncol=2, byrow=T)
+hold<-data.frame(hold);names(hold)<-c("NOM","POM")
+apply(hold, 2, mean)
+hold[,1]
+hold[,2]
+hold[,1]/hold[,2]
+bci.inf<-hold[,1]/hold[,2]
+mean(bci.inf)
+length(which(hold[,2]>0.95))/100
+hold<-matrix(unlist(lapply(out.hold,function(x) {x[,6]})), ncol=2, byrow=T)
+length(which(hold[,2]>0.95))/100
+out.hold<-lapply(nsp16_lambda0_lambdatrait_1, extract.summary)
+### What's the breadth of the confidence intervals#
+hold<-matrix(unlist(lapply(out.hold,function(x) {apply((x[,2:3]), 1, diff)})), ncol=2, byrow=T)#
+apply(hold, 2, mean)#
+#
+bci.inf<-hold[,1]/hold[,2]#
+mean(bci.inf)
+### Does the confidence interval contain the true value?#
+hold<-matrix(unlist(lapply(out.hold,function(x) {x[,2] < 1 & x[,3] > 1})), ncol=2, byrow=T)#
+hold<-data.frame(hold);names(hold)<-c("NOM","POM")#
+head(hold)#
+apply(hold, 2, sum)
+hold<-matrix(unlist(lapply(out.hold,function(x) {abs(x[,1]-1)})), ncol=2, byrow=T)#
+hold<-data.frame(hold);names(hold)<-c("NOM","POM")#
+apply(hold, 2, mean)
+bci.inf<-hold[,1]/hold[,2]#
+mean(bci.inf)
+apply(t(apply(hold, 1, function (x) {x==min(x)})), 2, sum)
+length(which(hold[,2]>0.95))/100
+hold<-matrix(unlist(lapply(out.hold,function(x) {x[,6]})), ncol=2, byrow=T)
+length(which(hold[,2]>0.95))/100
+out.hold<-lapply(nsp16_lambda1_lambdatrait_0, extract.summary)
+### What's the breadth of the confidence intervals#
+hold<-matrix(unlist(lapply(out.hold,function(x) {apply((x[,2:3]), 1, diff)})), ncol=2, byrow=T)#
+apply(hold, 2, mean)#
+#
+bci.inf<-hold[,1]/hold[,2]#
+mean(bci.inf)
+### Does the confidence interval contain the true value?#
+hold<-matrix(unlist(lapply(out.hold,function(x) {x[,2] < 1 & x[,3] > 1})), ncol=2, byrow=T)#
+hold<-data.frame(hold);names(hold)<-c("NOM","POM")#
+head(hold)#
+apply(hold, 2, sum)
+### Which estimate is closer to the true estimate?#
+hold<-matrix(unlist(lapply(out.hold,function(x) {abs(x[,1]-1)})), ncol=2, byrow=T)#
+hold<-data.frame(hold);names(hold)<-c("NOM","POM")#
+apply(hold, 2, mean)
+bci.inf<-hold[,1]/hold[,2]#
+mean(bci.inf)
+apply(t(apply(hold, 1, function (x) {x==min(x)})), 2, sum)
+### Quick assay of type I error rate. What model weight cut off is right???#
+hold<-matrix(unlist(lapply(out.hold,function(x) {x[,6]})), ncol=2, byrow=T)#
+length(which(hold[,2]>0.95))/100
+out.hold<-lapply(nsp16_lambda1_lambdatrait_1, extract.summary)
+### What's the breadth of the confidence intervals#
+hold<-matrix(unlist(lapply(out.hold,function(x) {apply((x[,2:3]), 1, diff)})), ncol=2, byrow=T)#
+apply(hold, 2, mean)#
+#
+bci.inf<-hold[,1]/hold[,2]#
+mean(bci.inf)
+### Does the confidence interval contain the true value?#
+hold<-matrix(unlist(lapply(out.hold,function(x) {x[,2] < 1 & x[,3] > 1})), ncol=2, byrow=T)#
+hold<-data.frame(hold);names(hold)<-c("NOM","POM")#
+head(hold)#
+apply(hold, 2, sum)
+### Which estimate is closer to the true estimate?#
+hold<-matrix(unlist(lapply(out.hold,function(x) {abs(x[,1]-1)})), ncol=2, byrow=T)#
+hold<-data.frame(hold);names(hold)<-c("NOM","POM")#
+apply(hold, 2, mean)
+apply(t(apply(hold, 1, function (x) {x==min(x)})), 2, sum)
+hold<-matrix(unlist(lapply(out.hold,function(x) {x[,6]})), ncol=2, byrow=T)
+length(which(hold[,2]>0.95))/100
+length(which(hold[,2]>0.75))/100
+out.hold<-lapply(nsp16_lambda1_lambdatrait_0, extract.summary)
+hold<-matrix(unlist(lapply(out.hold,function(x) {x[,6]})), ncol=2, byrow=T)#
+length(which(hold[,2]>0.95))/100#
+length(which(hold[,2]>0.75))/100
+out.hold<-lapply(nsp16_lambda0_lambdatrait_1, extract.summary)
+### Quick assay of type I error rate. What model weight cut off is right???#
+hold<-matrix(unlist(lapply(out.hold,function(x) {x[,6]})), ncol=2, byrow=T)#
+length(which(hold[,2]>0.95))/100#
+length(which(hold[,2]>0.75))/100
+out.hold<-lapply(nsp16_lambda0_lambdatrait_0, extract.summary)
+hold<-matrix(unlist(lapply(out.hold,function(x) {x[,6]})), ncol=2, byrow=T)#
+length(which(hold[,2]>0.95))/100#
+length(which(hold[,2]>0.75))/100
+load('~/Dropbox/ccb_banding/analyses/occupancy-phylo/saved/traits/nsp32-1-1.rdata', verbose=T)#
+out.hold<-lapply(nsp32_lambda1_lambdatrait_1, extract.summary)
+### What's the breadth of the confidence intervals#
+hold<-matrix(unlist(lapply(out.hold,function(x) {apply((x[,2:3]), 1, diff)})), ncol=2, byrow=T)#
+apply(hold, 2, mean)#
+#
+bci.inf<-hold[,1]/hold[,2]#
+mean(bci.inf)
+### Does the confidence interval contain the true value?#
+hold<-matrix(unlist(lapply(out.hold,function(x) {x[,2] < 1 & x[,3] > 1})), ncol=2, byrow=T)#
+hold<-data.frame(hold);names(hold)<-c("NOM","POM")#
+head(hold)#
+apply(hold, 2, sum)#
+#
+### Wh
+## Which estimate is closer to the true estimate?#
+hold<-matrix(unlist(lapply(out.hold,function(x) {abs(x[,1]-1)})), ncol=2, byrow=T)#
+hold<-data.frame(hold);names(hold)<-c("NOM","POM")#
+apply(hold, 2, mean)#
+#
+bci.inf<-hold[,1]/hold[,2]#
+mean(bci.inf)
+apply(t(apply(hold, 1, function (x) {x==min(x)})), 2, sum)
+hold<-matrix(unlist(lapply(out.hold,function(x) {x[,6]})), ncol=2, byrow=T)
+length(which(hold[,2]>0.95))/100
+length(which(hold[,2]>0.75))/100
+load('~/Dropbox/ccb_banding/analyses/occupancy-phylo/saved/traits/nsp32-1-0.rdata', verbose=T)
+out.hold<-lapply(nsp32_lambda1_lambdatrait_0, extract.summary)
+### What's the breadth of the confidence intervals#
+hold<-matrix(unlist(lapply(out.hold,function(x) {apply((x[,2:3]), 1, diff)})), ncol=2, byrow=T)#
+apply(hold, 2, mean)#
+#
+bci.inf<-hold[,1]/hold[,2]#
+mean(bci.inf)
+### Does the confidence interval contain the true value?#
+hold<-matrix(unlist(lapply(out.hold,function(x) {x[,2] < 1 & x[,3] > 1})), ncol=2, byrow=T)#
+hold<-data.frame(hold);names(hold)<-c("NOM","POM")#
+head(hold)#
+apply(hold, 2, sum)
+### Which estimate is closer to the true estimate?#
+hold<-matrix(unlist(lapply(out.hold,function(x) {abs(x[,1]-1)})), ncol=2, byrow=T)#
+hold<-data.frame(hold);names(hold)<-c("NOM","POM")#
+apply(hold, 2, mean)
+apply(t(apply(hold, 1, function (x) {x==min(x)})), 2, sum)
+hold<-matrix(unlist(lapply(out.hold,function(x) {x[,6]})), ncol=2, byrow=T)
+length(which(hold[,2]>0.95))/100
+length(which(hold[,2]>0.75))/100
+0.75^5
+0.8^5
+0.9^5
+load('~/Dropbox/ccb_banding/analyses/occupancy-phylo/saved/traits/nsp16.rdata', verbose=T)
+out.hold<-lapply(nsp16_lambda0_lambdatrait_0, extract.summary)
+hold<-matrix(unlist(lapply(out.hold,function(x) {x[,6]})), ncol=2, byrow=T)
+length(which(hold[,2]>0.95))/100
+length(which(hold[,2]>0.75))/100
+length(which(hold[,2]>0.6667))/100
+setwd('~/Dropbox/ccb_banding')
+source('analyses/multi-species-phylo/src/initialize.R')
+source('analyses/occupancy-phylo/src/initialize.R')
+load('~/Dropbox/ccb_banding/analyses/occupancy-phylo/saved/RJMCMC/Chase/POM_mods_ChaseData_nsp_123.rdata', verbose=T)
+res.psi.betas
+res.psi.betas$bugs
+res.psi.betas$BUGSoutput$summary
+sumz<-res.psi.betas$BUGSoutput$summary
+show<-c('mean', '2.5%', '97.5%')
+sumz[,show]
+round(sumz[,show], 3)
+round(sumz[,show], 2)
+write.csv(round(sumz[,show], 2), file='~/Desktop/ChaseParamEst.csv')
+sumz2<-round(sumz[,show], 2)
+paste(sumz2[,2], sumz2[,3])
+paste(sumz2[,2], sumz2[,3], sep=", ")
+paste("(", sumz2[,2], " ,",sumz2[,3], ")", sep="")
+paste("(", sumz2[,2], ", ",sumz2[,3], ")", sep="")
+sumz2[,4]<-paste("(", sumz2[,2], ", ",sumz2[,3], ")", sep="")
+sumz2$BCI<-paste("(", sumz2[,2], ", ",sumz2[,3], ")", sep="")
+sumz<-res.psi.betas$BUGSoutput$summary#
+show<-c('mean', '2.5%', '97.5%')#
+sumz2<-round(sumz[,show], 2)
+sumz2<-data.frame(sumz2)
+sumz2$BCI<-paste("(", sumz2[,2], ", ",sumz2[,3], ")", sep="")
+sumz3<-sumz2[,-c(2,3)]
+sumz3
+write.csv(sumz3, file='~/Desktop/ChaseParamEst.csv')
+grep("psi.0.sp", row.names(sumz2))
+sumz[grep("psi.0.sp", row.names(sumz)),]
+expit(sumz[grep("psi.0.sp", row.names(sumz)),])
+expit(sumz[grep("psi.0.sp", row.names(sumz)),])[,1]
+mean(expit(sumz[grep("psi.0.sp", row.names(sumz)),])[,1])
+sd(expit(sumz[grep("psi.0.sp", row.names(sumz)),])[,1])
+expit(-0.75)
+expit(-0.9)
+expit(-0.6)
+mean((sumz[grep("psi.0.sp", row.names(sumz)),])[,1])
+sd((sumz[grep("psi.0.sp", row.names(sumz)),])[,1])
+load('~/Dropbox/ccb_banding/analyses/occupancy-phylo/saved/traits/nsp32-0-1.rdata', verbose=T)
+out.hold<-lapply(nsp32_lambda0_lambdatrait_1, extract.summary)
+### What's the breadth of the confidence intervals#
+hold<-matrix(unlist(lapply(out.hold,function(x) {apply((x[,2:3]), 1, diff)})), ncol=2, byrow=T)#
+apply(hold, 2, mean)#
+#
+bci.inf<-hold[,1]/hold[,2]#
+mean(bci.inf)
+### Does the confidence interval contain the true value?#
+hold<-matrix(unlist(lapply(out.hold,function(x) {x[,2] < 1 & x[,3] > 1})), ncol=2, byrow=T)#
+hold<-data.frame(hold);names(hold)<-c("NOM","POM")#
+head(hold)#
+apply(hold, 2, sum)
+### Which estimate is closer to the true estimate?#
+hold<-matrix(unlist(lapply(out.hold,function(x) {abs(x[,1]-1)})), ncol=2, byrow=T)#
+hold<-data.frame(hold);names(hold)<-c("NOM","POM")#
+apply(hold, 2, mean)#
+#
+bci.inf<-hold[,1]/hold[,2]#
+mean(bci.inf)
+### Which model is better#
+apply(t(apply(hold, 1, function (x) {x==min(x)})), 2, sum)
+### Quick assay of type I error rate. What model weight cut off is right???#
+hold<-matrix(unlist(lapply(out.hold,function(x) {x[,6]})), ncol=2, byrow=T)#
+length(which(hold[,2]>0.95))/100#
+length(which(hold[,2]>0.75))/100
+psi.vec<-c(0,0,1,0,1)
+psi.vec
+p.det<-0.25
+X.vec<-c(0,0,1,0,1)
+p.det<-0.25
+psi<-0.6
+X.vec
+X.vec * p.det
+(X.vec * p.det) + ((1- X.vec) * (1-p.det))
+(X.vec * p.det) + ((1- X.vec) * (1-p.det)) * psi
+prod( (X.vec * p.det) + ((1- X.vec) * (1-p.det)) )
+prod( (X.vec * p.det) + ((1- X.vec) * (1-p.det)) ) * psi
+(X.vec * p.det) + ((1- X.vec) * (1-p.det))
+(X.vec * p.det) + ((1- X.vec) * (1-p.det)) * psi
+dbinom(2, 5, 0.25)
+(X.vec * p.det) + ((1- X.vec) * (1-p.det)) * psi
+(X.vec * p.det) + ((1- X.vec) * (1-p.det))
+(X.vec * p.det) + ((1- X.vec) * (1-p.det))  / 5
+sum( (X.vec * p.det) + ((1- X.vec) * (1-p.det)) )  / 5
+dbinom(2, 5, 0.25)
+prod( (X.vec * p.det) + ((1- X.vec) * (1-p.det)) )
+?dbinom
+1 - (X.vec * p.det) + ((1- X.vec) * (1-p.det)
+)
+(X.vec * p.det) + ((1- X.vec) * (1-p.det))
+dbinom(2, 5, 0.25)
+dbinom(2, 5, 0.25) * psi
+dbinom(2, 5, 0.25) * psi + (1-psi)*0
+dbinom(0, 5, 0.25)
+dbinom(0, 5, 0.25) * psi + (1-psi)*1
+dbinom(0, 5, 0.25) * psi
+(1-psi)*1
+(X.vec * p.det) + ((1- X.vec) * (1-p.det))
+prod((X.vec * p.det) + ((1- X.vec) * (1-p.det)))
+##************************************************************************#
+## Importance sampling code for Perry#
+##************************************************************************#
 rm(list=ls())#
+setwd('~/Dropbox/ccb_banding/analyses/occupancy-phylo/for_perry')#
 #
-library('ape')#
-library('dclone')#
-library('geiger')#
-library('MASS')#
-library('phytools')#
-library('scales')#
+library(dclone)#
+library(R2jags)#
+library(scales)#
 #
-## Load Model data#
-###
-## Correctly identifies phylogenetic signal#
-load('~/Desktop/POM_mods_lambda_0.5_nsp_32_V1.rdata')#
-###
-## -or-#
-###
-## Correctly estimates lambda at 0, but still thinks a model with#
-## lambda estimated is better than one where lambda is set to 0.#
-load('~/Desktop/POM_mods_lambda_0_nsp_32_V7.rdata') #
+source('functionsFaster.R') ## These are the functions you sent to us,#
+                            ## with a few modifications and additional#
+                            ## functions.  Completely new, or updated#
+                            ## functions begin on line 411
+## compile C code and load resultant .so object#
+fn.1 <- 'phyloOccLL.o'#
+fn.2 <- 'phyloOccLL.so'#
+fn.3 <- 'phyloOccLL.c'#
+if(file.exists(fn.1)) file.remove(fn.1)#
+if(file.exists(fn.2)) file.remove(fn.2)#
+system(sprintf('R CMD SHLIB %s', fn.3))#
+dyn.load(fn.2)#
 #
-## Parameter estimates for both models.#
-summary(mod.lam) # Lambda estimated#
-summary(mod.null) # Lambda=0#
+## load the data which was simulated with lambda=0.5 and 32 species#
+## (lambda=0.5 is important, because as will be shown later, the model#
+## with lambda is the less likely model)#
+load('~/Dropbox/ccb_banding/analyses/occupancy-phylo/saved/dclone/POM_mods_lambda_0.5_nsp_32_V8.rdata',#
+     verbose=TRUE)#
+## load('POM_mods_lambda_0.5_nsp_32_V8.rdata', verbose=T)
+set.seed(1)#
+n.batch <- 1#
 #
-## Some Rhats are high, but are for spp with occupancy intercepts#
-## (psi.0.sp) near 1 or 0 when passed through logit link.#
+mod.lam <- pom.LL(mod.lam,#
+                  n.batches=n.batch,#
+                  batch.size=10000,#
+                  save.all.LLs=T,#
+                  n.cores=4)
+mod.null <- pom.LL(mod.null,#
+                   n.batches=n.batch,#
+                   batch.size=10000,#
+                   save.all.LLs=T,#
+                   n.cores=4)
+length(attr(mod.lam,  'lik.vals'))
+length(attr(mod.null, 'lik.vals'))
+round(attr(mod.lam,  'stat.sum'), 4)
+round(attr(mod.null, 'stat.sum'), 4)
+hist(attr(mod.lam, 'lik.vals'), col=alpha('blue', 0.5))#
+abline(v=attr(mod.lam, 'stat.sum')['LL'], col='blue')#
+hist(attr(mod.null, 'lik.vals'), add=T, col=alpha('red', 0.5))#
+abline(v=attr(mod.null, 'stat.sum')['LL'], col='red')
+anova.pom(mod.lam, mod.null)
+set.seed(1)#
+n.batch <- 10#
 #
-## Additional Model properties are stored as attributes#
-summary(attributes(mod.lam))#
+mod.lam <- pom.LL(mod.lam,#
+                  n.batches=n.batch,#
+                  batch.size=10000,#
+                  save.all.LLs=T,#
+                  n.cores=4)#
 #
-## Whether model has lambda paramter or not, used to decide which#
-## likelihood calculation to use in jags.LL function below#
-attr(mod.lam, "model.case")#
+mod.null <- pom.LL(mod.null,#
+                   n.batches=n.batch,#
+                   batch.size=10000,#
+                   save.all.LLs=T,#
+                   n.cores=4)#
 #
-## Post-dclone jags model output, monitoring random effects. Acts as#
-## input for jags.LL function below#
-attr(mod.lam, "jags.mod")#
+## Total number of draws#
+length(attr(mod.lam,  'lik.vals'))#
+length(attr(mod.null, 'lik.vals'))#
 #
-## Vector of simulated likelihood values. Output of jags.LL#
-## function. These models were run with 1 million draws.#
-attr(mod.lam, "lik.vals")#
+## SE.LL reports the standard error, calculated in line 480 in#
+## functionsFaster.R#
+round(attr(mod.lam,  'stat.sum'), 4)#
+round(attr(mod.null, 'stat.sum'), 4)#
 #
-## Summary of likelihood statistics. Output of jags.LL function.#
-attr(mod.lam, "stat.sum")#
+## Histograms of LLs for both models. Vertical line represents mean,#
+## as calculated on line 473 in functionsFaster.R.  Blue#
+## (respectively, red) corresponds to draws from models with#
+## (respectively without) lambda.#
+hist(attr(mod.lam, 'lik.vals'), col=alpha('blue', 0.5))#
+abline(v=attr(mod.lam, 'stat.sum')['LL'], col='blue')#
+hist(attr(mod.null, 'lik.vals'), add=T, col=alpha('red', 0.5))#
+abline(v=attr(mod.null, 'stat.sum')['LL'], col='red')#
 #
-## Running jags.LL function to caluclate LLs for specified number of#
-## random draws. Functions currently set to add attributes of#
-## likelihood values for all simulations, and a set of statistical#
-## summaries based on those likelihoods, to the original model#
-## object. Detection here should always be TRUE since imperfect#
-## detection is included in all these models.#
-mod.lam <- jags.LL(dclone.mod=mod.lam,#
-                   draw.num=100,#
-                   num.cores=4,#
-                   detection=T)
-## Running jags.LL function to caluclate LLs for specified number of#
-## random draws. Functions currently set to add attributes of#
-## likelihood values for all simulations, and a set of statistical#
-## summaries based on those likelihoods, to the original model#
-## object. Detection here should always be TRUE since imperfect#
-## detection is included in all these models.#
-source('~/Desktop/functions.R')#
-#
-mod.lam <- jags.LL(dclone.mod=mod.lam,#
-                   draw.num=100,#
-                   num.cores=4,#
-                   detection=T)
-warnings()
-## Running jags.LL function to caluclate LLs for specified number of#
-## random draws. Functions currently set to add attributes of#
-## likelihood values for all simulations, and a set of statistical#
-## summaries based on those likelihoods, to the original model#
-## object. Detection here should always be TRUE since imperfect#
-## detection is included in all these models.#
-source('~/Desktop/functions.R')#
-#
-mod.lam <- jags.LL(dclone.mod=mod.lam,#
-                   draw.num=100,#
-                   num.cores=4,#
-                   detection=T)
-Q
-## Running jags.LL function to caluclate LLs for specified number of#
-## random draws. Functions currently set to add attributes of#
-## likelihood values for all simulations, and a set of statistical#
-## summaries based on those likelihoods, to the original model#
-## object. Detection here should always be TRUE since imperfect#
-## detection is included in all these models.#
-source('~/Desktop/functions.R')#
-#
-mod.lam <- jags.LL(dclone.mod=mod.lam,#
-                   draw.num=100,#
-                   num.cores=4,#
-                   detection=T)
-expit
-model.case <- attr(dclone.mod, "model.case")#
-  jags.mod <- attr(dclone.mod, "jags.mod")
-model.case
-jags.mod
-prms <- jags.mod$data
-chains <- jags.mod$bugs$BUGSoutput$sims.matrix
-## mean vector#
-  mu.vec <- colMeans(chains)#
-  ## variance-covariance matrix#
-  vcov.mat <- cov(chains)
-Q
-## Running jags.LL function to caluclate LLs for specified number of#
-## random draws. Functions currently set to add attributes of#
-## likelihood values for all simulations, and a set of statistical#
-## summaries based on those likelihoods, to the original model#
-## object. Detection here should always be TRUE since imperfect#
-## detection is included in all these models.#
-source('~/Desktop/functions.R')#
-#
-mod.lam <- jags.LL(dclone.mod=mod.lam,#
-                   draw.num=100,#
-                   num.cores=4,#
-                   detection=T)
-random.draws <- mvrnorm(n=draw.num, mu=mu.vec, Sigma=vcov.mat)
-random.draws
-Q
-## Running jags.LL function to caluclate LLs for specified number of#
-## random draws. Functions currently set to add attributes of#
-## likelihood values for all simulations, and a set of statistical#
-## summaries based on those likelihoods, to the original model#
-## object. Detection here should always be TRUE since imperfect#
-## detection is included in all these models.#
-source('~/Desktop/functions.R')#
-#
-mod.lam <- jags.LL(dclone.mod=mod.lam,#
-                   draw.num=100,#
-                   num.cores=4,#
-                   detection=T)
-mod.lam
-mod.null <- jags.LL(mod.null,#
-                    draw.num=100,#
-                    num.cores=4,#
-                    detection=T)
-mod.null
-rm(list=ls())#
-library('ape')#
-library('dclone')#
-library('geiger')#
-library('MASS')#
-library('phytools')#
-library('scales')#
-#
-## Load Model data#
-###
-## Correctly identifies phylogenetic signal#
-load('~/Desktop/POM_mods_lambda_0.5_nsp_32_V1.rdata')#
-###
-## -or-#
-###
-## Correctly estimates lambda at 0, but still thinks a model with#
-## lambda estimated is better than one where lambda is set to 0.
-## Parameter estimates for both models.#
-summary(mod.lam) # Lambda estimated#
-summary(mod.null) # Lambda=0#
-#
-## Some Rhats are high, but are for spp with occupancy intercepts#
-## (psi.0.sp) near 1 or 0 when passed through logit link.#
-#
-## Additional Model properties are stored as attributes#
-summary(attributes(mod.lam))#
-#
-## Whether model has lambda paramter or not, used to decide which#
-## likelihood calculation to use in jags.LL function below#
-attr(mod.lam, "model.case")#
-#
-## Post-dclone jags model output, monitoring random effects. Acts as#
-## input for jags.LL function below#
-attr(mod.lam, "jags.mod")#
-#
-## Vector of simulated likelihood values. Output of jags.LL#
-## function. These models were run with 1 million draws.#
-attr(mod.lam, "lik.vals")#
-#
-## Summary of likelihood statistics. Output of jags.LL function.#
-attr(mod.lam, "stat.sum")#
-#
-## Running jags.LL function to caluclate LLs for specified number of#
-## random draws. Functions currently set to add attributes of#
-## likelihood values for all simulations, and a set of statistical#
-## summaries based on those likelihoods, to the original model#
-## object. Detection here should always be TRUE since imperfect#
-## detection is included in all these models.#
-source('~/Desktop/functions.R')#
-#
-mod.lam <- jags.LL(dclone.mod=mod.lam,#
-                   draw.num=100,#
-                   num.cores=4,#
-                   detection=T)
-mod.null <- jags.LL(mod.null,#
-                    draw.num=100,#
-                    num.cores=4,#
-                    detection=T)
-rm(list=ls())#
-library('ape')#
-library('dclone')#
-library('geiger')#
-library('MASS')#
-library('phytools')#
-library('scales')#
-#
-## Load Model data#
-###
-## Correctly identifies phylogenetic signal#
-load('~/Desktop/POM_mods_lambda_0.5_nsp_32_V1.rdata')
-## Parameter estimates for both models.#
-summary(mod.lam) # Lambda estimated#
-summary(mod.null) # Lambda=0#
-#
-## Some Rhats are high, but are for spp with occupancy intercepts#
-## (psi.0.sp) near 1 or 0 when passed through logit link.#
-#
-## Additional Model properties are stored as attributes#
-summary(attributes(mod.lam))#
-#
-## Whether model has lambda paramter or not, used to decide which#
-## likelihood calculation to use in jags.LL function below#
-attr(mod.lam, "model.case")#
-#
-## Post-dclone jags model output, monitoring random effects. Acts as#
-## input for jags.LL function below#
-attr(mod.lam, "jags.mod")#
-#
-## Vector of simulated likelihood values. Output of jags.LL#
-## function. These models were run with 1 million draws.#
-attr(mod.lam, "lik.vals")#
-#
-## Summary of likelihood statistics. Output of jags.LL function.#
-attr(mod.lam, "stat.sum")#
-#
-## Running jags.LL function to caluclate LLs for specified number of#
-## random draws. Functions currently set to add attributes of#
-## likelihood values for all simulations, and a set of statistical#
-## summaries based on those likelihoods, to the original model#
-## object. Detection here should always be TRUE since imperfect#
-## detection is included in all these models.#
-source('~/Desktop/functions.R')#
-#
-mod.lam <- jags.LL(dclone.mod=mod.lam,#
-                   draw.num=100,#
-                   num.cores=4,#
-                   detection=T)
-mod.null <- jags.LL(mod.null,#
-                    draw.num=100,#
-                    num.cores=4,#
-                    detection=T)
-rm(list=ls())#
-library('ape')#
-library('dclone')#
-library('geiger')#
-library('MASS')#
-library('phytools')#
-library('scales')#
-#
-## Load Model data#
-###
-## Correctly identifies phylogenetic signal#
-load('~/Desktop/POM_mods_lambda_0.5_nsp_32_V1.rdata')
-## Parameter estimates for both models.#
-summary(mod.lam) # Lambda estimated#
-summary(mod.null) # Lambda=0#
-#
-## Some Rhats are high, but are for spp with occupancy intercepts#
-## (psi.0.sp) near 1 or 0 when passed through logit link.#
-#
-## Additional Model properties are stored as attributes#
-summary(attributes(mod.lam))#
-#
-## Whether model has lambda paramter or not, used to decide which#
-## likelihood calculation to use in jags.LL function below#
-attr(mod.lam, "model.case")#
-#
-## Post-dclone jags model output, monitoring random effects. Acts as#
-## input for jags.LL function below#
-attr(mod.lam, "jags.mod")#
-#
-## Vector of simulated likelihood values. Output of jags.LL#
-## function. These models were run with 1 million draws.#
-attr(mod.lam, "lik.vals")#
-#
-## Summary of likelihood statistics. Output of jags.LL function.#
-attr(mod.lam, "stat.sum")#
-#
-## Running jags.LL function to caluclate LLs for specified number of#
-## random draws. Functions currently set to add attributes of#
-## likelihood values for all simulations, and a set of statistical#
-## summaries based on those likelihoods, to the original model#
-## object. Detection here should always be TRUE since imperfect#
-## detection is included in all these models.#
-source('~/Desktop/functions.R')#
-#
-mod.lam <- jags.LL(dclone.mod=mod.lam,#
-                   draw.num=100,#
-                   num.cores=4,#
-                   detection=T)
-mod.null <- jags.LL(mod.null,#
-                    draw.num=100,#
-                    num.cores=4,#
-                    detection=T)
-mod.lam
-mod.null
-rm(list=ls())#
-library('ape')#
-library('dclone')#
-library('geiger')#
-library('MASS')#
-library('phytools')#
-library('scales')#
-#
-## Load Model data#
-###
-## Correctly identifies phylogenetic signal#
-load('~/Desktop/POM_mods_lambda_0.5_nsp_32_V1.rdata')
-## Parameter estimates for both models.#
-summary(mod.lam) # Lambda estimated#
-summary(mod.null) # Lambda=0#
-#
-## Some Rhats are high, but are for spp with occupancy intercepts#
-## (psi.0.sp) near 1 or 0 when passed through logit link.#
-#
-## Additional Model properties are stored as attributes#
-summary(attributes(mod.lam))#
-#
-## Whether model has lambda paramter or not, used to decide which#
-## likelihood calculation to use in jags.LL function below#
-attr(mod.lam, "model.case")#
-#
-## Post-dclone jags model output, monitoring random effects. Acts as#
-## input for jags.LL function below#
-attr(mod.lam, "jags.mod")#
-#
-## Vector of simulated likelihood values. Output of jags.LL#
-## function. These models were run with 1 million draws.#
-attr(mod.lam, "lik.vals")#
-#
-## Summary of likelihood statistics. Output of jags.LL function.#
-attr(mod.lam, "stat.sum")#
-#
-## Running jags.LL function to caluclate LLs for specified number of#
-## random draws. Functions currently set to add attributes of#
-## likelihood values for all simulations, and a set of statistical#
-## summaries based on those likelihoods, to the original model#
-## object. Detection here should always be TRUE since imperfect#
-## detection is included in all these models.#
-source('~/Desktop/functions.R')#
-#
-mod.lam <- jags.LL(dclone.mod=mod.lam,#
-                   draw.num=100,#
-                   num.cores=4,#
-                   detection=T)
-probs.matrix <- matrix(c(0.1, 0.1,   0,#
-                         0.3,   0, 0.2,#
-                         0,   0.2, 0.1), nrow=3)
-probs.matrix
-sum(probs.matrix)
-length(probs.matrix)
-## suppose we want 3 interactions and we have the following#
-## probability matrix#
-probs.matrix <- matrix(c(0.1, 0.1,   0,#
-                         0.3,   0, 0.2,#
-                         0,   0.2, 0.1), nrow=3)#
-sample(1:length(probs.matrix), 3, replace=FALSE)
-## suppose we want 3 interactions and we have the following#
-## probability matrix#
-probs.matrix <- matrix(c(0.1, 0.1,   0,#
-                         0.3,   0, 0.2,#
-                         0,   0.2, 0.1), nrow=3)#
-sample(1:length(probs.matrix), 3, replace=FALSE, prob=probs.matrix)
-## suppose we want 3 interactions and we have the following#
-## probability matrix#
-probs.matrix <- matrix(c(0.1, 0.1,   0,#
-                         0.3,   0, 0.2,#
-                         0,   0.2, 0.1), nrow=3)#
-ones <- sample(1:length(probs.matrix), 3, replace=FALSE,#
-               prob=probs.matrix)#
-res.matrix(matrix(0, nrow=3, ncol=3))#
-res.matrix[ones] <- 1
-## suppose we want 3 interactions and we have the following#
-## probability matrix#
-probs.matrix <- matrix(c(0.1, 0.1,   0,#
-                         0.3,   0, 0.2,#
-                         0,   0.2, 0.1), nrow=3)#
-ones <- sample(1:length(probs.matrix), 3, replace=FALSE,#
-               prob=probs.matrix)#
-res.matrix <- matrix(0, nrow=3, ncol=3)#
-res.matrix[ones] <- 1
-res.matrix
-?sample
-149/182
-202/260
-15/260
-23/182
-5*149+23*4+3*3+5*2+2
-(5*149+23*4+3*3+5*2+2)/182
-(5*202+4*29+3*15+2*6+1*8)/182
-(5*202+4*29+3*15+2*6+1*8)/260
-(5*149+23*4+3*3+5*2+2)/182
-(5*202+4*29+3*15+2*6+1*8)/260
-1000/4500
-3.99*4
-2783-661
-2783-661-50
--22-36.8+58.8
--22-36.8+58.8-17.96-25+17.96
--22-36.8+58.8-17.96-25+17.96+39.4
--22-36.8+58.8-17.96-25+17.96+39.5
--22-36.8+58.8-17.96-25+17.96+39.5-17
-20*60*3
-20*60*3+3*20*30
-20*60*3+3*20*30+1500
-(20*60*3+3*20*30+1500)*5*52
-20*60*3+3*20*30
-(20*60*3+3*20*30)*5*52
-46.39*0.01
-46.39*0.02
-420/60
-load('~/Downloads/CropPollinatorsComp.Rdata')
-x<-load('~/Downloads/CropPollinatorsComp.Rdata')
-x
-crop.pol
-dim(crop.pol)
-write.csv(crop.pol, file='~/Desktop/crop_pollinators.cvs')
-write.csv(crop.pol, file='~/Desktop/crop_pollinators.csv')
-write.csv(crop.pol, file='~/Desktop/crop_pollinators.csv', row.names=FALSE)
-load('~/Dropbox/ccb_banding/data/gis/range_mapping/saved/ranges.RData')
-x<-load('~/Dropbox/ccb_banding/data/gis/range_mapping/saved/ranges.RData')
-x
-sp.ranges[[1]]
-length(sp.ranges[[1]])
-length(sp.ranges[[2]])
-length(sp.ranges[[3]])
-length(sp.ranges[[4]])
-length(sp.ranges[[5]])
-length(sp.ranges[[6]])
-length(unlist(sp.ranges[[2]]))
-40+2.5+2.95+9.25+11.06+22.19
-15+2.5+2.95+9.25+11.06+22.19
-15+2.5+2.95+9.25+11.06+22.19+60
-3100*12
-585+30.03
-585+30.03+18303
-1200*12
-1160+411
-1160+411+3249.03+765.96
-585+30.03
-24162*0.9
-20000*1.2
-24000*1.2
+anova.pom(mod.lam, mod.null)
 ##************************************************************************#
 ## Importance sampling code for Perry#
 ##************************************************************************#
@@ -769,748 +503,487 @@ mod.lam <- pom.LL(mod.lam,#
                   n.batches=n.batch,#
                   batch.size=10000,#
                   save.all.LLs=T)#
-round(attr(mod.lam,  'stat.sum'), 4)
-mp
-Q
-##************************************************************************#
-## Importance sampling code for Perry#
-##************************************************************************#
-rm(list=ls())#
-setwd('~/Dropbox/ccb_banding/analyses/occupancy-phylo/for_perry')#
 #
-library(dclone)#
-library(R2jags)#
-library(scales)#
+mod.null <- pom.LL(mod.null,#
+                   n.batches=n.batch,#
+                   batch.size=10000,#
+                   save.all.LLs=T)#
 #
-source('functionsFaster.R') ## These are the functions you sent to us,#
-                            ## with a few modifications and additional#
-                            ## functions.  Completely new, or updated#
-                            ## functions begin on line 411#
+## Total number of draws#
+length(attr(mod.lam,  'lik.vals'))#
+length(attr(mod.null, 'lik.vals'))#
 #
-## compile C code and load resultant .so object#
-fn.1 <- 'phyloOccLL.o'#
-fn.2 <- 'phyloOccLL.so'#
-fn.3 <- 'phyloOccLL.c'#
-if(file.exists(fn.1)) file.remove(fn.1)#
-if(file.exists(fn.2)) file.remove(fn.2)#
-system(sprintf('R CMD SHLIB %s', fn.3))#
-dyn.load(fn.2)#
+## SE.LL reports the standard error, calculated in line 480 in#
+## functionsFaster.R#
+round(attr(mod.lam,  'stat.sum'), 4)#
+round(attr(mod.null, 'stat.sum'), 4)#
 #
-## load the data which was simulated with lambda=0.5 and 32 species#
-## (lambda=0.5 is important, because as will be shown later, the model#
-## with lambda is the less likely model)#
-load('~/Dropbox/ccb_banding/analyses/occupancy-phylo/saved/dclone/POM_mods_lambda_0.5_nsp_32_V8.rdata',#
-     verbose=TRUE)#
-## load('POM_mods_lambda_0.5_nsp_32_V8.rdata', verbose=T)#
+## Histograms of LLs for both models. Vertical line represents mean,#
+## as calculated on line 473 in functionsFaster.R.  Blue#
+## (respectively, red) corresponds to draws from models with#
+## (respectively without) lambda.#
+hist(attr(mod.lam, 'lik.vals'), col=alpha('blue', 0.5))#
+abline(v=attr(mod.lam, 'stat.sum')['LL'], col='blue')#
+hist(attr(mod.null, 'lik.vals'), add=T, col=alpha('red', 0.5))#
+abline(v=attr(mod.null, 'stat.sum')['LL'], col='red')#
 #
-#####################################################################
-## Calculate LL with small number of draws#
-#####################################################################
+anova.pom(mod.lam, mod.null)
+n.batch <- 10#
 #
-## If this is repeated a few times the resulting p-values vary quite #
-## a bit#
-#
-set.seed(1)#
-n.batch <- 1#
+#set.seed(1)#
 #
 mod.lam <- pom.LL(mod.lam,#
                   n.batches=n.batch,#
                   batch.size=10000,#
-                  save.all.LLs=T)#
-round(attr(mod.lam,  'stat.sum'), 4)
-##************************************************************************#
-## Importance sampling code for Perry#
-##************************************************************************#
-rm(list=ls())#
-setwd('~/Dropbox/ccb_banding/analyses/occupancy-phylo/for_perry')#
+                  save.all.LLs=T,#
+                  n.cores=5)#
 #
-library(dclone)#
-library(R2jags)#
-library(scales)#
+mod.null <- pom.LL(mod.null,#
+                   n.batches=n.batch,#
+                   batch.size=10000,#
+                   save.all.LLs=T,#
+                   n.cores=5)#
 #
-source('functionsFaster.R') ## These are the functions you sent to us,#
-                            ## with a few modifications and additional#
-                            ## functions.  Completely new, or updated#
-                            ## functions begin on line 411#
+## Total number of draws#
+length(attr(mod.lam, 'lik.vals'))#
+length(attr(mod.null, 'lik.vals'))#
 #
-## compile C code and load resultant .so object#
-fn.1 <- 'phyloOccLL.o'#
-fn.2 <- 'phyloOccLL.so'#
-fn.3 <- 'phyloOccLL.c'#
-if(file.exists(fn.1)) file.remove(fn.1)#
-if(file.exists(fn.2)) file.remove(fn.2)#
-system(sprintf('R CMD SHLIB %s', fn.3))#
-dyn.load(fn.2)#
+## SE.LL reports the standard error, calculated in line 480 in#
+## functionsFaster.R#
+round(attr(mod.lam, 'stat.sum'), 4)#
+round(attr(mod.null, 'stat.sum'), 4)#
 #
-## load the data which was simulated with lambda=0.5 and 32 species#
-## (lambda=0.5 is important, because as will be shown later, the model#
-## with lambda is the less likely model)#
-load('~/Dropbox/ccb_banding/analyses/occupancy-phylo/saved/dclone/POM_mods_lambda_0.5_nsp_32_V8.rdata',#
-     verbose=TRUE)#
-## load('POM_mods_lambda_0.5_nsp_32_V8.rdata', verbose=T)#
+## Histograms of LLs for both models. Vertical line represents mean,#
+## as calculated on line 478 in functionsFaster.R#
+hist(attr(mod.lam, 'lik.vals'), col=alpha('blue', 0.5))#
+abline(v=attr(mod.lam, 'stat.sum')['LL'], col='blue')#
+hist(attr(mod.null, 'lik.vals'), add=T, col=alpha('red', 0.5))#
+abline(v=attr(mod.null, 'stat.sum')['LL'], col='red')#
 #
-#####################################################################
-## Calculate LL with small number of draws#
-#####################################################################
+anova.pom(mod.lam, mod.null)
+n.batch <- 10#
 #
-## If this is repeated a few times the resulting p-values vary quite #
-## a bit#
-#
-set.seed(1)#
-n.batch <- 1#
+#set.seed(1)#
 #
 mod.lam <- pom.LL(mod.lam,#
                   n.batches=n.batch,#
                   batch.size=10000,#
-                  save.all.LLs=T)#
-round(attr(mod.lam,  'stat.sum'), 4)
-dimnames(X)
-expand.grid(dimnames(X))
-head(dimnames(X), 50)
-head(expand.grid(dimnames(X)), 50)
-head(expand.grid(dimnames(X)), 100)
-Q
-##************************************************************************#
-## Importance sampling code for Perry#
-##************************************************************************#
-rm(list=ls())#
-setwd('~/Dropbox/ccb_banding/analyses/occupancy-phylo/for_perry')#
+                  save.all.LLs=T,#
+                  n.cores=5)#
 #
-library(dclone)#
-library(R2jags)#
-library(scales)#
+mod.null <- pom.LL(mod.null,#
+                   n.batches=n.batch,#
+                   batch.size=10000,#
+                   save.all.LLs=T,#
+                   n.cores=5)#
 #
-source('functionsFaster.R') ## These are the functions you sent to us,#
-                            ## with a few modifications and additional#
-                            ## functions.  Completely new, or updated#
-                            ## functions begin on line 411#
+## Total number of draws#
+length(attr(mod.lam, 'lik.vals'))#
+length(attr(mod.null, 'lik.vals'))#
 #
-## compile C code and load resultant .so object#
-fn.1 <- 'phyloOccLL.o'#
-fn.2 <- 'phyloOccLL.so'#
-fn.3 <- 'phyloOccLL.c'#
-if(file.exists(fn.1)) file.remove(fn.1)#
-if(file.exists(fn.2)) file.remove(fn.2)#
-system(sprintf('R CMD SHLIB %s', fn.3))#
-dyn.load(fn.2)#
+## SE.LL reports the standard error, calculated in line 480 in#
+## functionsFaster.R#
+round(attr(mod.lam, 'stat.sum'), 4)#
+round(attr(mod.null, 'stat.sum'), 4)#
 #
-## load the data which was simulated with lambda=0.5 and 32 species#
-## (lambda=0.5 is important, because as will be shown later, the model#
-## with lambda is the less likely model)#
-load('~/Dropbox/ccb_banding/analyses/occupancy-phylo/saved/dclone/POM_mods_lambda_0.5_nsp_32_V8.rdata',#
-     verbose=TRUE)#
-## load('POM_mods_lambda_0.5_nsp_32_V8.rdata', verbose=T)#
+## Histograms of LLs for both models. Vertical line represents mean,#
+## as calculated on line 478 in functionsFaster.R#
+hist(attr(mod.lam, 'lik.vals'), col=alpha('blue', 0.5))#
+abline(v=attr(mod.lam, 'stat.sum')['LL'], col='blue')#
+hist(attr(mod.null, 'lik.vals'), add=T, col=alpha('red', 0.5))#
+abline(v=attr(mod.null, 'stat.sum')['LL'], col='red')#
 #
-#####################################################################
-## Calculate LL with small number of draws#
-#####################################################################
+anova.pom(mod.lam, mod.null)
+n.batch <- 10#
 #
-## If this is repeated a few times the resulting p-values vary quite #
-## a bit#
-#
-set.seed(1)#
-n.batch <- 1#
+#set.seed(1)#
 #
 mod.lam <- pom.LL(mod.lam,#
                   n.batches=n.batch,#
                   batch.size=10000,#
-                  save.all.LLs=T)#
-round(attr(mod.lam,  'stat.sum'), 4)
-##************************************************************************#
-## Importance sampling code for Perry#
-##************************************************************************#
-rm(list=ls())#
-setwd('~/Dropbox/ccb_banding/analyses/occupancy-phylo/for_perry')#
+                  save.all.LLs=T,#
+                  n.cores=5)#
 #
-library(dclone)#
-library(R2jags)#
-library(scales)#
+mod.null <- pom.LL(mod.null,#
+                   n.batches=n.batch,#
+                   batch.size=10000,#
+                   save.all.LLs=T,#
+                   n.cores=5)#
 #
-source('functionsFaster.R') ## These are the functions you sent to us,#
-                            ## with a few modifications and additional#
-                            ## functions.  Completely new, or updated#
-                            ## functions begin on line 411#
+## Total number of draws#
+length(attr(mod.lam, 'lik.vals'))#
+length(attr(mod.null, 'lik.vals'))#
 #
-## compile C code and load resultant .so object#
-fn.1 <- 'phyloOccLL.o'#
-fn.2 <- 'phyloOccLL.so'#
-fn.3 <- 'phyloOccLL.c'#
-if(file.exists(fn.1)) file.remove(fn.1)#
-if(file.exists(fn.2)) file.remove(fn.2)#
-system(sprintf('R CMD SHLIB %s', fn.3))#
-dyn.load(fn.2)#
+## SE.LL reports the standard error, calculated in line 480 in#
+## functionsFaster.R#
+round(attr(mod.lam, 'stat.sum'), 4)#
+round(attr(mod.null, 'stat.sum'), 4)#
 #
-## load the data which was simulated with lambda=0.5 and 32 species#
-## (lambda=0.5 is important, because as will be shown later, the model#
-## with lambda is the less likely model)#
-load('~/Dropbox/ccb_banding/analyses/occupancy-phylo/saved/dclone/POM_mods_lambda_0.5_nsp_32_V8.rdata',#
-     verbose=TRUE)#
-## load('POM_mods_lambda_0.5_nsp_32_V8.rdata', verbose=T)#
+## Histograms of LLs for both models. Vertical line represents mean,#
+## as calculated on line 478 in functionsFaster.R#
+hist(attr(mod.lam, 'lik.vals'), col=alpha('blue', 0.5))#
+abline(v=attr(mod.lam, 'stat.sum')['LL'], col='blue')#
+hist(attr(mod.null, 'lik.vals'), add=T, col=alpha('red', 0.5))#
+abline(v=attr(mod.null, 'stat.sum')['LL'], col='red')#
 #
-#####################################################################
-## Calculate LL with small number of draws#
-#####################################################################
+anova.pom(mod.lam, mod.null)
+n.batch <- 10#
 #
-## If this is repeated a few times the resulting p-values vary quite #
-## a bit#
-#
-set.seed(1)#
-n.batch <- 1#
+#set.seed(1)#
 #
 mod.lam <- pom.LL(mod.lam,#
                   n.batches=n.batch,#
                   batch.size=10000,#
-                  save.all.LLs=T)#
-round(attr(mod.lam,  'stat.sum'), 4)
-##************************************************************************#
-## Importance sampling code for Perry#
-##************************************************************************#
-rm(list=ls())#
-setwd('~/Dropbox/ccb_banding/analyses/occupancy-phylo/for_perry')#
+                  save.all.LLs=T,#
+                  n.cores=5)#
 #
-library(dclone)#
-library(R2jags)#
-library(scales)#
+mod.null <- pom.LL(mod.null,#
+                   n.batches=n.batch,#
+                   batch.size=10000,#
+                   save.all.LLs=T,#
+                   n.cores=5)#
 #
-source('functionsFaster.R') ## These are the functions you sent to us,#
-                            ## with a few modifications and additional#
-                            ## functions.  Completely new, or updated#
-                            ## functions begin on line 411#
+## Total number of draws#
+length(attr(mod.lam, 'lik.vals'))#
+length(attr(mod.null, 'lik.vals'))#
 #
-## compile C code and load resultant .so object#
-fn.1 <- 'phyloOccLL.o'#
-fn.2 <- 'phyloOccLL.so'#
-fn.3 <- 'phyloOccLL.c'#
-if(file.exists(fn.1)) file.remove(fn.1)#
-if(file.exists(fn.2)) file.remove(fn.2)#
-system(sprintf('R CMD SHLIB %s', fn.3))#
-dyn.load(fn.2)#
+## SE.LL reports the standard error, calculated in line 480 in#
+## functionsFaster.R#
+round(attr(mod.lam, 'stat.sum'), 4)#
+round(attr(mod.null, 'stat.sum'), 4)#
 #
-## load the data which was simulated with lambda=0.5 and 32 species#
-## (lambda=0.5 is important, because as will be shown later, the model#
-## with lambda is the less likely model)#
-load('~/Dropbox/ccb_banding/analyses/occupancy-phylo/saved/dclone/POM_mods_lambda_0.5_nsp_32_V8.rdata',#
-     verbose=TRUE)#
-## load('POM_mods_lambda_0.5_nsp_32_V8.rdata', verbose=T)#
+## Histograms of LLs for both models. Vertical line represents mean,#
+## as calculated on line 478 in functionsFaster.R#
+hist(attr(mod.lam, 'lik.vals'), col=alpha('blue', 0.5))#
+abline(v=attr(mod.lam, 'stat.sum')['LL'], col='blue')#
+hist(attr(mod.null, 'lik.vals'), add=T, col=alpha('red', 0.5))#
+abline(v=attr(mod.null, 'stat.sum')['LL'], col='red')#
 #
-#####################################################################
-## Calculate LL with small number of draws#
-#####################################################################
+anova.pom(mod.lam, mod.null)
+## Same behavior even with more draws#
 #
-## If this is repeated a few times the resulting p-values vary quite #
-## a bit#
+n.batch <- 20#
 #
-set.seed(1)#
-n.batch <- 1#
+#set.seed(1)#
 #
 mod.lam <- pom.LL(mod.lam,#
                   n.batches=n.batch,#
                   batch.size=10000,#
-                  save.all.LLs=T)#
-round(attr(mod.lam,  'stat.sum'), 4)
-##************************************************************************#
-## Importance sampling code for Perry#
-##************************************************************************#
-rm(list=ls())#
-setwd('~/Dropbox/ccb_banding/analyses/occupancy-phylo/for_perry')#
+                  save.all.LLs=T,#
+                  n.cores=7)#
 #
-library(dclone)#
-library(R2jags)#
-library(scales)#
+mod.null <- pom.LL(mod.null,#
+                   n.batches=n.batch,#
+                   batch.size=10000,#
+                   save.all.LLs=T,#
+                   n.cores=7)#
 #
-source('functionsFaster.R') ## These are the functions you sent to us,#
-                            ## with a few modifications and additional#
-                            ## functions.  Completely new, or updated#
-                            ## functions begin on line 411#
+## Total number of draws#
+length(attr(mod.lam, 'lik.vals'))#
+length(attr(mod.null, 'lik.vals'))#
 #
-## compile C code and load resultant .so object#
-fn.1 <- 'phyloOccLL.o'#
-fn.2 <- 'phyloOccLL.so'#
-fn.3 <- 'phyloOccLL.c'#
-if(file.exists(fn.1)) file.remove(fn.1)#
-if(file.exists(fn.2)) file.remove(fn.2)#
-system(sprintf('R CMD SHLIB %s', fn.3))#
-dyn.load(fn.2)#
+## SE.LL reports the standard error, calculated in line 480 in#
+## functionsFaster.R#
+round(attr(mod.lam, 'stat.sum'), 4)#
+round(attr(mod.null, 'stat.sum'), 4)#
 #
-## load the data which was simulated with lambda=0.5 and 32 species#
-## (lambda=0.5 is important, because as will be shown later, the model#
-## with lambda is the less likely model)#
-load('~/Dropbox/ccb_banding/analyses/occupancy-phylo/saved/dclone/POM_mods_lambda_0.5_nsp_32_V8.rdata',#
-     verbose=TRUE)#
-## load('POM_mods_lambda_0.5_nsp_32_V8.rdata', verbose=T)#
+## Histograms of LLs for both models. Vertical line represents mean,#
+## as calculated on line 478 in functionsFaster.R#
+hist(attr(mod.lam, 'lik.vals'), col=alpha('blue', 0.5))#
+abline(v=attr(mod.lam, 'stat.sum')['LL'], col='blue')#
+hist(attr(mod.null, 'lik.vals'), add=T, col=alpha('red', 0.5))#
+abline(v=attr(mod.null, 'stat.sum')['LL'], col='red')#
 #
-#####################################################################
-## Calculate LL with small number of draws#
-#####################################################################
+anova.pom(mod.lam, mod.null)
+## Same behavior even with more draws#
 #
-## If this is repeated a few times the resulting p-values vary quite #
-## a bit#
+n.batch <- 20#
 #
-set.seed(1)#
-n.batch <- 1#
+#set.seed(1)#
 #
 mod.lam <- pom.LL(mod.lam,#
                   n.batches=n.batch,#
                   batch.size=10000,#
-                  save.all.LLs=T)#
-round(attr(mod.lam,  'stat.sum'), 4)
-##************************************************************************#
-## Importance sampling code for Perry#
-##************************************************************************#
-rm(list=ls())#
-setwd('~/Dropbox/ccb_banding/analyses/occupancy-phylo/for_perry')#
+                  save.all.LLs=T,#
+                  n.cores=7)#
 #
-library(dclone)#
-library(R2jags)#
-library(scales)#
+mod.null <- pom.LL(mod.null,#
+                   n.batches=n.batch,#
+                   batch.size=10000,#
+                   save.all.LLs=T,#
+                   n.cores=7)#
 #
-source('functionsFaster.R') ## These are the functions you sent to us,#
-                            ## with a few modifications and additional#
-                            ## functions.  Completely new, or updated#
-                            ## functions begin on line 411#
+## Total number of draws#
+length(attr(mod.lam, 'lik.vals'))#
+length(attr(mod.null, 'lik.vals'))#
 #
-## compile C code and load resultant .so object#
-fn.1 <- 'phyloOccLL.o'#
-fn.2 <- 'phyloOccLL.so'#
-fn.3 <- 'phyloOccLL.c'#
-if(file.exists(fn.1)) file.remove(fn.1)#
-if(file.exists(fn.2)) file.remove(fn.2)#
-system(sprintf('R CMD SHLIB %s', fn.3))#
-dyn.load(fn.2)#
+## SE.LL reports the standard error, calculated in line 480 in#
+## functionsFaster.R#
+round(attr(mod.lam, 'stat.sum'), 4)#
+round(attr(mod.null, 'stat.sum'), 4)#
 #
-## load the data which was simulated with lambda=0.5 and 32 species#
-## (lambda=0.5 is important, because as will be shown later, the model#
-## with lambda is the less likely model)#
-load('~/Dropbox/ccb_banding/analyses/occupancy-phylo/saved/dclone/POM_mods_lambda_0.5_nsp_32_V8.rdata',#
-     verbose=TRUE)#
-## load('POM_mods_lambda_0.5_nsp_32_V8.rdata', verbose=T)#
+## Histograms of LLs for both models. Vertical line represents mean,#
+## as calculated on line 478 in functionsFaster.R#
+hist(attr(mod.lam, 'lik.vals'), col=alpha('blue', 0.5))#
+abline(v=attr(mod.lam, 'stat.sum')['LL'], col='blue')#
+hist(attr(mod.null, 'lik.vals'), add=T, col=alpha('red', 0.5))#
+abline(v=attr(mod.null, 'stat.sum')['LL'], col='red')#
 #
-#####################################################################
-## Calculate LL with small number of draws#
-#####################################################################
+anova.pom(mod.lam, mod.null)
+## Same behavior even with more draws#
 #
-## If this is repeated a few times the resulting p-values vary quite #
-## a bit#
+n.batch <- 20#
 #
-set.seed(1)#
-n.batch <- 1#
+#set.seed(1)#
 #
 mod.lam <- pom.LL(mod.lam,#
                   n.batches=n.batch,#
                   batch.size=10000,#
-                  save.all.LLs=T)#
-round(attr(mod.lam,  'stat.sum'), 4)
-##************************************************************************#
-## Importance sampling code for Perry#
-##************************************************************************#
-rm(list=ls())#
-setwd('~/Dropbox/ccb_banding/analyses/occupancy-phylo/for_perry')#
+                  save.all.LLs=T,#
+                  n.cores=7)#
 #
-library(dclone)#
-library(R2jags)#
-library(scales)#
+mod.null <- pom.LL(mod.null,#
+                   n.batches=n.batch,#
+                   batch.size=10000,#
+                   save.all.LLs=T,#
+                   n.cores=7)#
 #
-source('functionsFaster.R') ## These are the functions you sent to us,#
-                            ## with a few modifications and additional#
-                            ## functions.  Completely new, or updated#
-                            ## functions begin on line 411#
+## Total number of draws#
+length(attr(mod.lam, 'lik.vals'))#
+length(attr(mod.null, 'lik.vals'))#
 #
-## compile C code and load resultant .so object#
-fn.1 <- 'phyloOccLL.o'#
-fn.2 <- 'phyloOccLL.so'#
-fn.3 <- 'phyloOccLL.c'#
-if(file.exists(fn.1)) file.remove(fn.1)#
-if(file.exists(fn.2)) file.remove(fn.2)#
-system(sprintf('R CMD SHLIB %s', fn.3))#
-dyn.load(fn.2)#
+## SE.LL reports the standard error, calculated in line 480 in#
+## functionsFaster.R#
+round(attr(mod.lam, 'stat.sum'), 4)#
+round(attr(mod.null, 'stat.sum'), 4)#
 #
-## load the data which was simulated with lambda=0.5 and 32 species#
-## (lambda=0.5 is important, because as will be shown later, the model#
-## with lambda is the less likely model)#
-load('~/Dropbox/ccb_banding/analyses/occupancy-phylo/saved/dclone/POM_mods_lambda_0.5_nsp_32_V8.rdata',#
-     verbose=TRUE)#
-## load('POM_mods_lambda_0.5_nsp_32_V8.rdata', verbose=T)#
+## Histograms of LLs for both models. Vertical line represents mean,#
+## as calculated on line 478 in functionsFaster.R#
+hist(attr(mod.lam, 'lik.vals'), col=alpha('blue', 0.5))#
+abline(v=attr(mod.lam, 'stat.sum')['LL'], col='blue')#
+hist(attr(mod.null, 'lik.vals'), add=T, col=alpha('red', 0.5))#
+abline(v=attr(mod.null, 'stat.sum')['LL'], col='red')#
 #
-#####################################################################
-## Calculate LL with small number of draws#
-#####################################################################
+anova.pom(mod.lam, mod.null)
+40*8*10000
+50*8*10000
+60*8*10000
+100*8*10000
+120*8*10000
+122*8*10000
+125*8*10000
+n.batch <- 5#
 #
-## If this is repeated a few times the resulting p-values vary quite #
-## a bit#
-#
-set.seed(1)#
-n.batch <- 1#
+#set.seed(1)#
 #
 mod.lam <- pom.LL(mod.lam,#
                   n.batches=n.batch,#
                   batch.size=10000,#
-                  save.all.LLs=T)#
-round(attr(mod.lam,  'stat.sum'), 4)
-##************************************************************************#
-## Importance sampling code for Perry#
-##************************************************************************#
-rm(list=ls())#
-setwd('~/Dropbox/ccb_banding/analyses/occupancy-phylo/for_perry')#
+                  save.all.LLs=T,#
+                  n.cores=8)#
 #
-library(dclone)#
-library(R2jags)#
-library(scales)#
+mod.null <- pom.LL(mod.null,#
+                   n.batches=n.batch,#
+                   batch.size=10000,#
+                   save.all.LLs=T,#
+                   n.cores=8)#
 #
-source('functionsFaster.R') ## These are the functions you sent to us,#
-                            ## with a few modifications and additional#
-                            ## functions.  Completely new, or updated#
-                            ## functions begin on line 411#
+## Total number of draws#
+length(attr(mod.lam, 'lik.vals'))#
+length(attr(mod.null, 'lik.vals'))#
 #
-## compile C code and load resultant .so object#
-fn.1 <- 'phyloOccLL.o'#
-fn.2 <- 'phyloOccLL.so'#
-fn.3 <- 'phyloOccLL.c'#
-if(file.exists(fn.1)) file.remove(fn.1)#
-if(file.exists(fn.2)) file.remove(fn.2)#
-system(sprintf('R CMD SHLIB %s', fn.3))#
-dyn.load(fn.2)#
+## SE.LL reports the standard error, calculated in line 480 in#
+## functionsFaster.R#
+round(attr(mod.lam, 'stat.sum'), 4)#
+round(attr(mod.null, 'stat.sum'), 4)#
 #
-## load the data which was simulated with lambda=0.5 and 32 species#
-## (lambda=0.5 is important, because as will be shown later, the model#
-## with lambda is the less likely model)#
-load('~/Dropbox/ccb_banding/analyses/occupancy-phylo/saved/dclone/POM_mods_lambda_0.5_nsp_32_V8.rdata',#
-     verbose=TRUE)#
-## load('POM_mods_lambda_0.5_nsp_32_V8.rdata', verbose=T)#
+## Histograms of LLs for both models. Vertical line represents mean,#
+## as calculated on line 478 in functionsFaster.R#
+hist(attr(mod.lam, 'lik.vals'), col=alpha('blue', 0.5))#
+abline(v=attr(mod.lam, 'stat.sum')['LL'], col='blue')#
+hist(attr(mod.null, 'lik.vals'), add=T, col=alpha('red', 0.5))#
+abline(v=attr(mod.null, 'stat.sum')['LL'], col='red')#
 #
-#####################################################################
-## Calculate LL with small number of draws#
-#####################################################################
+anova.pom(mod.lam, mod.null)
+hist(attr(mod.lam, 'lik.vals'), col=alpha('blue', 0.5), breaks=10)
+hist(attr(mod.lam, 'lik.vals'), col=alpha('blue', 0.5), breaks=100)
+hist(attr(mod.null, 'lik.vals'), add=T, col=alpha('red', 0.5), breaks=100)
+## Histograms of LLs for both models. Vertical line represents mean,#
+## as calculated on line 478 in functionsFaster.R#
+hist(attr(mod.lam, 'lik.vals'), col=alpha('blue', 0.5), breaks=100)#
+abline(v=attr(mod.lam, 'stat.sum')['LL'], col='blue')#
+hist(attr(mod.null, 'lik.vals'), add=T, col=alpha('red', 0.5), breaks=100)#
+abline(v=attr(mod.null, 'stat.sum')['LL'], col='red')
+## Histograms of LLs for both models. Vertical line represents mean,#
+## as calculated on line 478 in functionsFaster.R#
+hist(attr(mod.lam, 'lik.vals'), col=alpha('blue', 0.5), breaks=100)#
+abline(v=attr(mod.lam, 'stat.sum')['LL'], col='blue')#
+hist(attr(mod.null, 'lik.vals'), add=T, col=alpha('red', 0.5), breaks=50)#
+abline(v=attr(mod.null, 'stat.sum')['LL'], col='red')
+n.batch <- 5#
 #
-## If this is repeated a few times the resulting p-values vary quite #
-## a bit#
-#
-set.seed(1)#
-n.batch <- 1#
-#
-mod.lam <- pom.LL(mod.lam,#
-                  n.batches=n.batch,#
-                  batch.size=10000,#
-                  save.all.LLs=T)#
-round(attr(mod.lam,  'stat.sum'), 4)
-##************************************************************************#
-## Importance sampling code for Perry#
-##************************************************************************#
-rm(list=ls())#
-setwd('~/Dropbox/ccb_banding/analyses/occupancy-phylo/for_perry')#
-#
-library(dclone)#
-library(R2jags)#
-library(scales)#
-#
-source('functionsFaster.R') ## These are the functions you sent to us,#
-                            ## with a few modifications and additional#
-                            ## functions.  Completely new, or updated#
-                            ## functions begin on line 411#
-#
-## compile C code and load resultant .so object#
-fn.1 <- 'phyloOccLL.o'#
-fn.2 <- 'phyloOccLL.so'#
-fn.3 <- 'phyloOccLL.c'#
-if(file.exists(fn.1)) file.remove(fn.1)#
-if(file.exists(fn.2)) file.remove(fn.2)#
-system(sprintf('R CMD SHLIB %s', fn.3))#
-dyn.load(fn.2)#
-#
-## load the data which was simulated with lambda=0.5 and 32 species#
-## (lambda=0.5 is important, because as will be shown later, the model#
-## with lambda is the less likely model)#
-load('~/Dropbox/ccb_banding/analyses/occupancy-phylo/saved/dclone/POM_mods_lambda_0.5_nsp_32_V8.rdata',#
-     verbose=TRUE)#
-## load('POM_mods_lambda_0.5_nsp_32_V8.rdata', verbose=T)#
-#
-#####################################################################
-## Calculate LL with small number of draws#
-#####################################################################
-#
-## If this is repeated a few times the resulting p-values vary quite #
-## a bit#
-#
-set.seed(1)#
-n.batch <- 1#
+#set.seed(1)#
 #
 mod.lam <- pom.LL(mod.lam,#
                   n.batches=n.batch,#
                   batch.size=10000,#
-                  save.all.LLs=T)#
-round(attr(mod.lam,  'stat.sum'), 4)
-##************************************************************************#
-## Importance sampling code for Perry#
-##************************************************************************#
-rm(list=ls())#
-setwd('~/Dropbox/ccb_banding/analyses/occupancy-phylo/for_perry')#
+                  save.all.LLs=F,#
+                  n.cores=8)#
 #
-library(dclone)#
-library(R2jags)#
-library(scales)#
+mod.null <- pom.LL(mod.null,#
+                   n.batches=n.batch,#
+                   batch.size=10000,#
+                   save.all.LLs=F,#
+                   n.cores=8)#
 #
-source('functionsFaster.R') ## These are the functions you sent to us,#
-                            ## with a few modifications and additional#
-                            ## functions.  Completely new, or updated#
-                            ## functions begin on line 411#
+## Total number of draws#
+length(attr(mod.lam, 'lik.vals'))#
+length(attr(mod.null, 'lik.vals'))#
 #
-## compile C code and load resultant .so object#
-fn.1 <- 'phyloOccLL.o'#
-fn.2 <- 'phyloOccLL.so'#
-fn.3 <- 'phyloOccLL.c'#
-if(file.exists(fn.1)) file.remove(fn.1)#
-if(file.exists(fn.2)) file.remove(fn.2)#
-system(sprintf('R CMD SHLIB %s', fn.3))#
-dyn.load(fn.2)#
+## SE.LL reports the standard error, calculated in line 480 in#
+## functionsFaster.R#
+round(attr(mod.lam, 'stat.sum'), 4)#
+round(attr(mod.null, 'stat.sum'), 4)#
 #
-## load the data which was simulated with lambda=0.5 and 32 species#
-## (lambda=0.5 is important, because as will be shown later, the model#
-## with lambda is the less likely model)#
-load('~/Dropbox/ccb_banding/analyses/occupancy-phylo/saved/dclone/POM_mods_lambda_0.5_nsp_32_V8.rdata',#
-     verbose=TRUE)#
-## load('POM_mods_lambda_0.5_nsp_32_V8.rdata', verbose=T)#
+## Histograms of LLs for both models. Vertical line represents mean,#
+## as calculated on line 478 in functionsFaster.R#
+hist(attr(mod.lam, 'lik.vals'), col=alpha('blue', 0.5), breaks=100)#
+abline(v=attr(mod.lam, 'stat.sum')['LL'], col='blue')#
+hist(attr(mod.null, 'lik.vals'), add=T, col=alpha('red', 0.5), breaks=50)#
+abline(v=attr(mod.null, 'stat.sum')['LL'], col='red')#
 #
-#####################################################################
-## Calculate LL with small number of draws#
-#####################################################################
+anova.pom(mod.lam, mod.null)
+n.batch <- 5#
 #
-## If this is repeated a few times the resulting p-values vary quite #
-## a bit#
-#
-set.seed(1)#
-n.batch <- 1#
+#set.seed(1)#
 #
 mod.lam <- pom.LL(mod.lam,#
                   n.batches=n.batch,#
                   batch.size=10000,#
-                  save.all.LLs=T)#
-round(attr(mod.lam,  'stat.sum'), 4)
-##************************************************************************#
-## Importance sampling code for Perry#
-##************************************************************************#
-rm(list=ls())#
-setwd('~/Dropbox/ccb_banding/analyses/occupancy-phylo/for_perry')#
+                  save.all.LLs=F,#
+                  n.cores=8)#
 #
-library(dclone)#
-library(R2jags)#
-library(scales)#
+mod.null <- pom.LL(mod.null,#
+                   n.batches=n.batch,#
+                   batch.size=10000,#
+                   save.all.LLs=F,#
+                   n.cores=8)#
 #
-source('functionsFaster.R') ## These are the functions you sent to us,#
-                            ## with a few modifications and additional#
-                            ## functions.  Completely new, or updated#
-                            ## functions begin on line 411#
+## Total number of draws#
+length(attr(mod.lam, 'lik.vals'))#
+length(attr(mod.null, 'lik.vals'))#
 #
-## compile C code and load resultant .so object#
-fn.1 <- 'phyloOccLL.o'#
-fn.2 <- 'phyloOccLL.so'#
-fn.3 <- 'phyloOccLL.c'#
-if(file.exists(fn.1)) file.remove(fn.1)#
-if(file.exists(fn.2)) file.remove(fn.2)#
-system(sprintf('R CMD SHLIB %s', fn.3))#
-dyn.load(fn.2)#
+## SE.LL reports the standard error, calculated in line 480 in#
+## functionsFaster.R#
+round(attr(mod.lam, 'stat.sum'), 4)#
+round(attr(mod.null, 'stat.sum'), 4)#
 #
-## load the data which was simulated with lambda=0.5 and 32 species#
-## (lambda=0.5 is important, because as will be shown later, the model#
-## with lambda is the less likely model)#
-load('~/Dropbox/ccb_banding/analyses/occupancy-phylo/saved/dclone/POM_mods_lambda_0.5_nsp_32_V8.rdata',#
-     verbose=TRUE)#
-## load('POM_mods_lambda_0.5_nsp_32_V8.rdata', verbose=T)#
+## Histograms of LLs for both models. Vertical line represents mean,#
+## as calculated on line 478 in functionsFaster.R#
+hist(attr(mod.lam, 'lik.vals'), col=alpha('blue', 0.5), breaks=100)#
+abline(v=attr(mod.lam, 'stat.sum')['LL'], col='blue')#
+hist(attr(mod.null, 'lik.vals'), add=T, col=alpha('red', 0.5), breaks=50)#
+abline(v=attr(mod.null, 'stat.sum')['LL'], col='red')#
 #
-#####################################################################
-## Calculate LL with small number of draws#
-#####################################################################
+anova.pom(mod.lam, mod.null)
+n.batch <- 100#
 #
-## If this is repeated a few times the resulting p-values vary quite #
-## a bit#
-#
-set.seed(1)#
-n.batch <- 1#
+#set.seed(1)#
 #
 mod.lam <- pom.LL(mod.lam,#
                   n.batches=n.batch,#
                   batch.size=10000,#
-                  save.all.LLs=T)#
-round(attr(mod.lam,  'stat.sum'), 4)
-##************************************************************************#
-## Importance sampling code for Perry#
-##************************************************************************#
-rm(list=ls())#
-setwd('~/Dropbox/ccb_banding/analyses/occupancy-phylo/for_perry')#
+                  save.all.LLs=F,#
+                  n.cores=8)#
 #
-library(dclone)#
-library(R2jags)#
-library(scales)#
+mod.null <- pom.LL(mod.null,#
+                   n.batches=n.batch,#
+                   batch.size=10000,#
+                   save.all.LLs=F,#
+                   n.cores=8)#
 #
-source('functionsFaster.R') ## These are the functions you sent to us,#
-                            ## with a few modifications and additional#
-                            ## functions.  Completely new, or updated#
-                            ## functions begin on line 411#
+## Total number of draws#
+length(attr(mod.lam, 'lik.vals'))#
+length(attr(mod.null, 'lik.vals'))#
 #
-## compile C code and load resultant .so object#
-fn.1 <- 'phyloOccLL.o'#
-fn.2 <- 'phyloOccLL.so'#
-fn.3 <- 'phyloOccLL.c'#
-if(file.exists(fn.1)) file.remove(fn.1)#
-if(file.exists(fn.2)) file.remove(fn.2)#
-system(sprintf('R CMD SHLIB %s', fn.3))#
-dyn.load(fn.2)#
+## SE.LL reports the standard error, calculated in line 480 in#
+## functionsFaster.R#
+round(attr(mod.lam, 'stat.sum'), 4)#
+round(attr(mod.null, 'stat.sum'), 4)#
 #
-## load the data which was simulated with lambda=0.5 and 32 species#
-## (lambda=0.5 is important, because as will be shown later, the model#
-## with lambda is the less likely model)#
-load('~/Dropbox/ccb_banding/analyses/occupancy-phylo/saved/dclone/POM_mods_lambda_0.5_nsp_32_V8.rdata',#
-     verbose=TRUE)#
-## load('POM_mods_lambda_0.5_nsp_32_V8.rdata', verbose=T)#
+## Histograms of LLs for both models. Vertical line represents mean,#
+## as calculated on line 478 in functionsFaster.R#
+hist(attr(mod.lam, 'lik.vals'), col=alpha('blue', 0.5), breaks=100)#
+abline(v=attr(mod.lam, 'stat.sum')['LL'], col='blue')#
+hist(attr(mod.null, 'lik.vals'), add=T, col=alpha('red', 0.5), breaks=50)#
+abline(v=attr(mod.null, 'stat.sum')['LL'], col='red')#
 #
-#####################################################################
-## Calculate LL with small number of draws#
-#####################################################################
+anova.pom(mod.lam, mod.null)
+## Same behavior even with more draws#
 #
-## If this is repeated a few times the resulting p-values vary quite #
-## a bit#
+n.batch <- 100#
 #
-set.seed(1)#
-n.batch <- 1#
+#set.seed(1)#
 #
 mod.lam <- pom.LL(mod.lam,#
                   n.batches=n.batch,#
                   batch.size=10000,#
-                  save.all.LLs=T)#
-round(attr(mod.lam,  'stat.sum'), 4)
-##************************************************************************#
-## Importance sampling code for Perry#
-##************************************************************************#
-rm(list=ls())#
-setwd('~/Dropbox/ccb_banding/analyses/occupancy-phylo/for_perry')#
+                  save.all.LLs=F,#
+                  n.cores=8)#
 #
-library(dclone)#
-library(R2jags)#
-library(scales)#
+mod.null <- pom.LL(mod.null,#
+                   n.batches=n.batch,#
+                   batch.size=10000,#
+                   save.all.LLs=F,#
+                   n.cores=8)#
 #
-source('functionsFaster.R') ## These are the functions you sent to us,#
-                            ## with a few modifications and additional#
-                            ## functions.  Completely new, or updated#
-                            ## functions begin on line 411#
+## Total number of draws#
+length(attr(mod.lam, 'lik.vals'))#
+length(attr(mod.null, 'lik.vals'))#
 #
-## compile C code and load resultant .so object#
-fn.1 <- 'phyloOccLL.o'#
-fn.2 <- 'phyloOccLL.so'#
-fn.3 <- 'phyloOccLL.c'#
-if(file.exists(fn.1)) file.remove(fn.1)#
-if(file.exists(fn.2)) file.remove(fn.2)#
-system(sprintf('R CMD SHLIB %s', fn.3))#
-dyn.load(fn.2)#
+## SE.LL reports the standard error, calculated in line 480 in#
+## functionsFaster.R#
+round(attr(mod.lam, 'stat.sum'), 4)#
+round(attr(mod.null, 'stat.sum'), 4)#
 #
-## load the data which was simulated with lambda=0.5 and 32 species#
-## (lambda=0.5 is important, because as will be shown later, the model#
-## with lambda is the less likely model)#
-load('~/Dropbox/ccb_banding/analyses/occupancy-phylo/saved/dclone/POM_mods_lambda_0.5_nsp_32_V8.rdata',#
-     verbose=TRUE)#
-## load('POM_mods_lambda_0.5_nsp_32_V8.rdata', verbose=T)#
+## Histograms of LLs for both models. Vertical line represents mean,#
+## as calculated on line 478 in functionsFaster.R#
+# hist(attr(mod.lam, 'lik.vals'), col=alpha('blue', 0.5), breaks=100)#
+# abline(v=attr(mod.lam, 'stat.sum')['LL'], col='blue')#
+# hist(attr(mod.null, 'lik.vals'), add=T, col=alpha('red', 0.5), breaks=50)#
+# abline(v=attr(mod.null, 'stat.sum')['LL'], col='red')#
 #
-#####################################################################
-## Calculate LL with small number of draws#
-#####################################################################
+anova.pom(mod.lam, mod.null)
+n.batch <- 200#
 #
-## If this is repeated a few times the resulting p-values vary quite #
-## a bit#
-#
-set.seed(1)#
-n.batch <- 1#
+#set.seed(1)#
 #
 mod.lam <- pom.LL(mod.lam,#
                   n.batches=n.batch,#
                   batch.size=10000,#
-                  save.all.LLs=T)#
-round(attr(mod.lam,  'stat.sum'), 4)
-##************************************************************************#
-## Importance sampling code for Perry#
-##************************************************************************#
-rm(list=ls())#
-setwd('~/Dropbox/ccb_banding/analyses/occupancy-phylo/for_perry')#
+                  save.all.LLs=F,#
+                  n.cores=4)#
 #
-library(dclone)#
-library(R2jags)#
-library(scales)#
+mod.null <- pom.LL(mod.null,#
+                   n.batches=n.batch,#
+                   batch.size=10000,#
+                   save.all.LLs=F,#
+                   n.cores=4)#
 #
-source('functionsFaster.R') ## These are the functions you sent to us,#
-                            ## with a few modifications and additional#
-                            ## functions.  Completely new, or updated#
-                            ## functions begin on line 411#
+## Total number of draws#
+length(attr(mod.lam, 'lik.vals'))#
+length(attr(mod.null, 'lik.vals'))#
 #
-## compile C code and load resultant .so object#
-fn.1 <- 'phyloOccLL.o'#
-fn.2 <- 'phyloOccLL.so'#
-fn.3 <- 'phyloOccLL.c'#
-if(file.exists(fn.1)) file.remove(fn.1)#
-if(file.exists(fn.2)) file.remove(fn.2)#
-system(sprintf('R CMD SHLIB %s', fn.3))#
-dyn.load(fn.2)#
+## SE.LL reports the standard error, calculated in line 480 in#
+## functionsFaster.R#
+round(attr(mod.lam, 'stat.sum'), 4)#
+round(attr(mod.null, 'stat.sum'), 4)#
 #
-## load the data which was simulated with lambda=0.5 and 32 species#
-## (lambda=0.5 is important, because as will be shown later, the model#
-## with lambda is the less likely model)#
-load('~/Dropbox/ccb_banding/analyses/occupancy-phylo/saved/dclone/POM_mods_lambda_0.5_nsp_32_V8.rdata',#
-     verbose=TRUE)#
-## load('POM_mods_lambda_0.5_nsp_32_V8.rdata', verbose=T)#
+## Histograms of LLs for both models. Vertical line represents mean,#
+## as calculated on line 478 in functionsFaster.R#
+# hist(attr(mod.lam, 'lik.vals'), col=alpha('blue', 0.5), breaks=100)#
+# abline(v=attr(mod.lam, 'stat.sum')['LL'], col='blue')#
+# hist(attr(mod.null, 'lik.vals'), add=T, col=alpha('red', 0.5), breaks=50)#
+# abline(v=attr(mod.null, 'stat.sum')['LL'], col='red')#
 #
-#####################################################################
-## Calculate LL with small number of draws#
-#####################################################################
-#
-## If this is repeated a few times the resulting p-values vary quite #
-## a bit#
-#
-set.seed(1)#
-n.batch <- 1#
-#
-mod.lam <- pom.LL(mod.lam,#
-                  n.batches=n.batch,#
-                  batch.size=10000,#
-                  save.all.LLs=T)#
-round(attr(mod.lam,  'stat.sum'), 4)
-##************************************************************************#
-## Importance sampling code for Perry#
-##************************************************************************#
-rm(list=ls())#
-setwd('~/Dropbox/ccb_banding/analyses/occupancy-phylo/for_perry')#
-#
-library(dclone)#
-library(R2jags)#
-library(scales)#
-#
-source('functionsFaster.R') ## These are the functions you sent to us,#
-                            ## with a few modifications and additional#
-                            ## functions.  Completely new, or updated#
-                            ## functions begin on line 411#
-#
-## compile C code and load resultant .so object#
-fn.1 <- 'phyloOccLL.o'#
-fn.2 <- 'phyloOccLL.so'#
-fn.3 <- 'phyloOccLL.c'#
-if(file.exists(fn.1)) file.remove(fn.1)#
-if(file.exists(fn.2)) file.remove(fn.2)#
-system(sprintf('R CMD SHLIB %s', fn.3))#
-dyn.load(fn.2)#
-#
-## load the data which was simulated with lambda=0.5 and 32 species#
-## (lambda=0.5 is important, because as will be shown later, the model#
-## with lambda is the less likely model)#
-load('~/Dropbox/ccb_banding/analyses/occupancy-phylo/saved/dclone/POM_mods_lambda_0.5_nsp_32_V8.rdata',#
-     verbose=TRUE)#
-## load('POM_mods_lambda_0.5_nsp_32_V8.rdata', verbose=T)#
-#
-#####################################################################
-## Calculate LL with small number of draws#
-#####################################################################
-#
-## If this is repeated a few times the resulting p-values vary quite #
-## a bit#
-#
-set.seed(1)#
-n.batch <- 1#
-#
-mod.lam <- pom.LL(mod.lam,#
-                  n.batches=n.batch,#
-                  batch.size=10000,#
-                  save.all.LLs=T)#
-round(attr(mod.lam,  'stat.sum'), 4)
+anova.pom(mod.lam, mod.null)

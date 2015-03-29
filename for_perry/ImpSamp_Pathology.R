@@ -77,19 +77,21 @@ anova.pom(mod.lam, mod.null)
 
 ## Same behavior even with more draws
 
-n.batch <- 10
+n.batch <- 200
 
-set.seed(1)
+#set.seed(1)
 
 mod.lam <- pom.LL(mod.lam,
                   n.batches=n.batch,
                   batch.size=10000,
-                  save.all.LLs=T)
+                  save.all.LLs=F,
+                  n.cores=4)
 
 mod.null <- pom.LL(mod.null,
                    n.batches=n.batch,
                    batch.size=10000,
-                   save.all.LLs=T)
+                   save.all.LLs=F,
+                   n.cores=4)
 
 ## Total number of draws
 length(attr(mod.lam, 'lik.vals'))
@@ -102,9 +104,32 @@ round(attr(mod.null, 'stat.sum'), 4)
 
 ## Histograms of LLs for both models. Vertical line represents mean,
 ## as calculated on line 478 in functionsFaster.R
-hist(attr(mod.lam, 'lik.vals'), col=alpha('blue', 0.5))
-abline(v=attr(mod.lam, 'stat.sum')['LL'], col='blue')
-hist(attr(mod.null, 'lik.vals'), add=T, col=alpha('red', 0.5))
-abline(v=attr(mod.null, 'stat.sum')['LL'], col='red')
+# hist(attr(mod.lam, 'lik.vals'), col=alpha('blue', 0.5), breaks=100)
+# abline(v=attr(mod.lam, 'stat.sum')['LL'], col='blue')
+# hist(attr(mod.null, 'lik.vals'), add=T, col=alpha('red', 0.5), breaks=50)
+# abline(v=attr(mod.null, 'stat.sum')['LL'], col='red')
 
 anova.pom(mod.lam, mod.null)
+
+
+
+## Runs with 8 million draws
+# First run
+# > anova.pom(mod.lam, mod.null)
+#          df      AIC    logLik  dAIC   Test    L.Ratio   p-value
+# mod.lam  39 7555.745 -3738.872 1.943                NA        NA
+# mod.null 38 7553.802 -3738.901 0.000 1 vs 2 0.05780759 0.8099953
+# Second run
+# > anova.pom(mod.lam, mod.null)
+#          df      AIC    logLik  dAIC   Test    L.Ratio   p-value
+# mod.lam  39 7555.743 -3738.871 1.921                NA        NA
+# mod.null 38 7553.822 -3738.911 0.000 1 vs 2 0.07870103 0.7790655
+# Third run
+# > anova.pom(mod.lam, mod.null)
+#          df      AIC    logLik  dAIC   Test    L.Ratio   p-value
+# mod.lam  39 7555.740 -3738.870 1.927                NA        NA
+# mod.null 38 7553.813 -3738.907 0.000 1 vs 2 0.07334779 0.7865233
+
+
+
+
