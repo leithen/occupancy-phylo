@@ -18,7 +18,7 @@ void sample_phylo_occupancy_ll(double *expit_p_0_samples,
 			       int *pnumReps, 
 			       int *pnumSpecies, 
 			       double *LL ) {
-  int iSample, iSite, iYear, iRep, iSpecies, iX, iZ;
+  int iSample, iSite, iYear, iRep, iSpecies, iZ;
   double prodPP, sumQQ, psi_sp_int, psi_sp_slope, psi, p;
   int numSamples = *pnumSamples;
   int numSites = *pnumSites;
